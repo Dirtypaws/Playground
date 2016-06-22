@@ -7,7 +7,6 @@
 .panel {
   margin-bottom: @line-height-computed;
   background-color: @panel-bg;
-  border: 0;
   border-radius:0;
   .box-shadow(0 2px 3px rgba(0,0,0,.075));
 }
@@ -21,7 +20,9 @@
 // Optional heading
 .panel-heading {
   padding: @panel-heading-padding;
-  border-bottom: 1px solid transparent;
+  border: 1px solid @gray-lighter;
+  font-size: 23px;
+  background-color: lighten(@gray-lighter, 3.5%);
   .border-top-radius((@panel-border-radius - 1));
 
   > .dropdown .dropdown-toggle {
@@ -31,48 +32,74 @@
   .panel-controls {
       float: right;
       margin-right: -15px;
-      background-color: lighten(@panel-bg, 15%);
+      background-color: lighten(@gray-lighter, 3.5%);
 
+      
       .panel-success & {
-          background-color: lighten(@brand-success, 15%);
-          &:hover {
-              background-color: @brand-success;
+          background-color: lighten(@brand-success, 40%);
+          .action {
+              border-color: darken(@panel-success-border, 13.5%);
+              &:hover {
+                background-color: lighten(@brand-success, 20%);
+              }
           }
       }
 
       .panel-primary & {
-          background-color: lighten(@brand-primary, 15%);
-          &:hover {
-              background-color: @brand-primary;
+          background-color: lighten(@brand-primary, 40%);
+          .action {
+              border-color: darken(@panel-primary-border, 13.5%);
+              &:hover {
+                background-color: lighten(@brand-primary, 20%);
+              }
           }
       }
 
       .panel-info & {
-          background-color: lighten(@brand-info, 15%);
-          &:hover {
-              background-color: @brand-info;
+          background-color: lighten(@brand-info, 40%);
+          .action {
+              border-color: darken(@panel-info-border, 13.5%);
+              &:hover {
+                background-color: lighten(@brand-info, 20%);
+              }
           }
       }
 
       .panel-warning & {
-          background-color: lighten(@brand-warning, 15%);
-          &:hover {
-              background-color: @brand-warning;
+          background-color: lighten(@brand-warning, 40%);
+          .action {
+              border-color: darken(@panel-warning-border, 13.5%);
+              &:hover {
+                background-color: lighten(@brand-warning, 20%);
+              }
           }
       }
 
       .panel-danger & {
-          background-color: lighten(@brand-danger, 15%);
-          &:hover {
-              background-color: @brand-danger;
+          background-color: lighten(@brand-danger, 40%);
+          .action {
+              border-color: darken(@panel-danger-border, 13.5%);
+              &:hover {
+                background-color: lighten(@brand-danger, 20%);
+              }
           }
       }
 
       .action {
-          padding: 0 9px;
+          padding: 2px 8px;
           font-size: 23px;
-          border-left: 1px inset rgba(0,0,0, 0.05);
-          color: #fff;
+          border-color: @gray-lighter;
+          border-left-width: 2px;
+          border-left-style: solid;
+          &.danger { padding-right: 5px; }
+          &:hover {
+              text-decoration: none;
+          }
+          &.success { color: @brand-success }
+          &.primary { color: @brand-primary }
+          &.info { color: @brand-info }
+          &.danger { color: @brand-danger }
+          &.warning { color: @brand-warning }
       }
 
   }
@@ -304,17 +331,17 @@
   .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
 }
 .panel-primary {
-  .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+  .panel-variant(darken(@panel-primary-border, 13.5%); @panel-primary-text; @panel-primary-heading-bg; darken(@panel-primary-border, 13.5%));
 }
 .panel-success {
-  .panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
+  .panel-variant(darken(@panel-success-border, 13.5%); @panel-success-text; @panel-success-heading-bg; darken(@panel-success-border, 13.5%));
 }
 .panel-info {
-  .panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+  .panel-variant(darken(@panel-info-border, 13.5%); @panel-info-text; @panel-info-heading-bg; darken(@panel-info-border, 13.5%));
 }
 .panel-warning {
-  .panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
+  .panel-variant(darken(@panel-warning-border, 13.5%); @panel-warning-text; @panel-warning-heading-bg; darken(@panel-warning-border, 13.5%));
 }
 .panel-danger {
-  .panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+  .panel-variant(darken(@panel-danger-border, 13.5%); @panel-danger-text; @panel-danger-heading-bg; darken(@panel-danger-border, 13.5%));
 }

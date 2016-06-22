@@ -5,7 +5,15 @@
     <div class="col-md-8">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h4>Products</h4>
+                Products
+                <div class="panel-controls">
+                    <a class="action danger" href="javascript:void(0)">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a class="action success" href="javascript:Index.Create()">
+                        <i class="fa fa-plus success"></i>
+                    </a>
+                </div>
             </div>
             <div class="panel-body">
                 <div id="grd_data"></div>
@@ -13,7 +21,5 @@
         </div>
     </div>
 </div>
-
-<input type="button" class="btn btn-primary" value="Create" onclick="Index.Create()"/>
 
 <script src="@Url.Content("~/Scripts/modules/index.js")"></script>

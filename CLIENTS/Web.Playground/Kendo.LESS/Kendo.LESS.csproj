@@ -153,9 +153,6 @@
     <Content Include="wwwroot\Bootstrap\sprite_kpi.png" />
     <Content Include="wwwroot\Bootstrap\sprite_kpi_2x.png" />
     <Content Include="wwwroot\fonts\fontawesome-webfont.svg" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="wwwroot\fonts\KendoUIGlyphs.svg" />
-    <Content Include="wwwroot\fonts\LICENSE.txt" />
     <Content Include="wwwroot\images\editor.png" />
     <Content Include="wwwroot\images\imagebrowser.png" />
     <Content Include="wwwroot\images\indeterminate.gif" />
@@ -203,6 +200,8 @@
     <Content Include="bower_components\font-awesome\font-awesome.less" />
     <Content Include="bower_components\font-awesome\variables.less" />
     <Content Include="bower_components\bootstrap\variables.less" />
+    <Content Include="bower_components\kendo\bootstrap-mapper.less" />
+    <Content Include="bower_components\kendo\type-bootstrap.less" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -210,32 +209,11 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="wwwroot\fonts\dejavu.less" />
-    <Content Include="wwwroot\fonts\DejaVuSans-Bold.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSans-BoldOblique.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSans-ExtraLight.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSans-Oblique.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSans.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSansMono-Bold.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSansMono-BoldOblique.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSansMono-Oblique.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSansMono.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSerif-Bold.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSerif-BoldItalic.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSerif-Italic.ttf" />
-    <Content Include="wwwroot\fonts\DejaVuSerif.ttf" />
     <Content Include="wwwroot\fonts\fontawesome-webfont.eot" />
     <Content Include="wwwroot\fonts\fontawesome-webfont.ttf" />
     <Content Include="wwwroot\fonts\fontawesome-webfont.woff" />
     <Content Include="wwwroot\fonts\fontawesome-webfont.woff2" />
     <Content Include="wwwroot\fonts\FontAwesome.otf" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="wwwroot\fonts\KendoUIGlyphs.eot" />
-    <Content Include="wwwroot\fonts\KendoUIGlyphs.ttf" />
-    <Content Include="wwwroot\fonts\KendoUIGlyphs.woff" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

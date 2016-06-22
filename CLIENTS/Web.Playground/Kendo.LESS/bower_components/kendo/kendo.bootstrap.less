@@ -75,6 +75,28 @@ http://docs.telerik.com/kendo-ui/using-kendo-with-twitter-bootstrap
 
 @import "../_libs/web/bootstrap-mapper.less";
 
+
+.k-menu {
+    .k-state-hover {
+        >.k-link {
+            box-shadow: inset 0px 0px 10px 0px fade(@brand-primary, 75);
+            color: #3d3d3d;
+        }
+    }
+
+    .k-state-selected {
+        &.k-state-hover {
+            >.k-link {
+                box-shadow: inset 0px 0px 20px 0px fade(@brand-primary, 75);
+                color: #3d3d3d;
+            }
+        }        
+        >.k-link {
+            color: #fff;
+        }
+    }
+}
+
 .k-state-selected {
-    color: #fff;
+    color:#fff ;
 }

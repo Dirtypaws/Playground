@@ -10,7 +10,7 @@
         columnMenu: true,
         columns: [
             { field: "Name" },
-            { field: "InStock", hidden: true },
+            { field: "InStock", template: "<input type='checkbox' data-toggle='toggle' disabled data-on='Yes' data-off='No' #= InStock ? 'checked' : '' #/>" },
             { field: "Price" }
         ],
         

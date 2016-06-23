@@ -45,7 +45,8 @@ gulp.task("js:libs", function() {
             paths.src + "**/dist/jquery.js",
             paths.src + "**/dist/js/bootstrap.js",
             paths.src + "**/routie.js",
-            paths.src + "**/kendo.web.js"
+            paths.src + "**/kendo.web.js",
+            paths.src + "**/bootstrap-toggle.js"
         ])
         .pipe(concat("libs.min.js"))
         .pipe(uglify())
@@ -81,7 +82,8 @@ gulp.task("css:libs", function() {
             "./bower_components/bootstrap/bootstrap.less",
             "./bower_components/_libs/web/kendo.common-bootstrap.less",
             "./bower_components/kendo/kendo.bootstrap.less",
-            "./bower_components/font-awesome/font-awesome.less"
+            "./bower_components/font-awesome/font-awesome.less",
+            "./bower_components/_libs/bootstrap-toggle/css/bootstrap-toggle.css"
         ])
         .pipe(less().on("error", function (e) { console.log(e); }))
         .pipe(cssmin())

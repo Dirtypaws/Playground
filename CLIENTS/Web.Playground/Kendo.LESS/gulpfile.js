@@ -1,4 +1,4 @@
-﻿/// <binding Clean='clean' ProjectOpened='watch' />
+﻿/// <binding />
 "use strict";
 
 var gulp = require("gulp"),
@@ -40,6 +40,8 @@ gulp.task("clean:fonts", function (cb) {
 
 gulp.task("clean", ["clean:js", "clean:css", "clean:fonts"]);
 
+gulp.task("js", ["js:libs", "js:app"]);
+
 gulp.task("js:libs", function() {
     return gulp.src([
             paths.src + "**/dist/jquery.js",
@@ -63,7 +65,7 @@ gulp.task("js:app", function() {
         .pipe(gulp.dest(dest));
 });
 
-gulp.task("js", ["js:libs", "js:app"]);
+gulp.task("css", ["css:libs", "css:app", "css:fonts", "css:images"]);
 
 gulp.task("css:app", function () {
     return gulp.src(["Content/*.css", "!Content/*.min.css", "Content/*.less"])
@@ -73,9 +75,6 @@ gulp.task("css:app", function () {
         .pipe(gulp.dest(dest));
 
 });
-
-gulp.task("css", ["css:libs", "css:app", "css:fonts", "css:images"]);
-
 
 gulp.task("css:libs", function() {
     return gulp.src([
@@ -106,20 +105,20 @@ gulp.task("css:images", function() {
 
 });
 
-gulp.task("watch", function () {
-    watch("./bower_components/*/*.scss", function () {
-        gulp.start("css:libs");
-    });
+//gulp.task("watch", function () {
+//    watch("./bower_components/*/*.scss", function () {
+//        gulp.start("css:libs");
+//    });
 
-    watch("./bower_components/*/*.less", function () {
-        gulp.start("css:libs");
-    });
+//    watch("./bower_components/*/*.less", function () {
+//        gulp.start("css:libs");
+//    });
 
-    watch("./Content/*/*.less", function () {
-        gulp.start("css:libs");
-    });
+//    watch("./Content/*/*.less", function () {
+//        gulp.start("css:libs");
+//    });
 
-    watch("./Scripts/*.js", function () {
-        gulp.start("js:app");
-    });
-});
+//    watch("./Scripts/*.js", function () {
+//        gulp.start("js:app");
+//    });
+//});

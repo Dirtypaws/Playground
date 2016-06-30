@@ -9,7 +9,14 @@
         }
 
         App._hub.server.create(person);
+
+        if (!$("#mdl_chk_keepOpen").is(":checked"))
+            $("#_modal").modal("hide");
     };
+
+    $(".modal-body input").on("keypress", function(e) {
+        if (e.keyCode == 13) save();
+    });
 
     return {
         Save: save

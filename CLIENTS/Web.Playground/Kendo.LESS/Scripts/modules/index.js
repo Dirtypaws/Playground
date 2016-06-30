@@ -8,9 +8,12 @@
         reorderable: true,
         selectable: "row",
         columnMenu: true,
+        pageable: {
+            pageSize: 20
+        },
         columns: [
-            { field: "FirstName" },
-            { field: "LastName" }
+            { field: "LastName" },
+            { field: "FirstName" }
         ],
         dataSource: {
             type: "signalr",
@@ -25,7 +28,7 @@
                     }
                 }
             },
-            sort: [{ field: "LastName", dir: "desc" }],
+            sort: [{ field: "LastName", dir: "asc" }],
             transport: {
                 signalr: {
                     promise: App.promise,

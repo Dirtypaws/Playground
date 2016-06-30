@@ -10,8 +10,7 @@
         columnMenu: true,
         columns: [
             { field: "FirstName" },
-            { title: "LastName" },
-            { field: "Price" }
+            { field: "LastName" }
         ],
         dataSource: {
             type: "signalr",

@@ -80,7 +80,7 @@ gulp.task("css", ["css:libs", "css:app", "css:fonts", "css:images"]);
 gulp.task("css:libs", function() {
     return gulp.src([
             "./bower_components/bootstrap/bootstrap.less",
-            "./bower_components/_libs/web/kendo.common-bootstrap.less",
+            "./bower_components/kendo/kendo.common-bootstrap.less",
             "./bower_components/kendo/kendo.bootstrap.less",
             "./bower_components/font-awesome/font-awesome.less",
             "./bower_components/_libs/bootstrap-toggle/css/bootstrap-toggle.css"

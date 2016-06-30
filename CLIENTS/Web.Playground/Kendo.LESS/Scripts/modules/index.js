@@ -9,11 +9,10 @@
         selectable: "row",
         columnMenu: true,
         columns: [
-            { field: "Name" },
-            { field: "InStock", template: "<input type='checkbox' data-toggle='toggle' disabled data-on='Yes' data-off='No' #= InStock ? 'checked' : '' #/>" },
+            { field: "FirstName" },
+            { title: "LastName" },
             { field: "Price" }
         ],
-        
         dataSource: {
             type: "signalr",
             autoSync: true,
@@ -22,13 +21,12 @@
                     id: "ID",
                     fields: {
                         "ID": { type: "string" },
-                        "Name": { type: "string" },
-                        "Price": { type: "number" },
-                        "InStock": { type: "bool" }
+                        "FirstName": { type: "string" },
+                        "LastName": { type: "numberstring" }
                     }
                 }
             },
-            sort: [{ field: "Name", dir: "desc" }],
+            sort: [{ field: "LastName", dir: "desc" }],
             transport: {
                 signalr: {
                     promise: App.promise,

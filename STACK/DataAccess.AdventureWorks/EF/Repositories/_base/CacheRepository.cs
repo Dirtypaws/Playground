@@ -11,7 +11,7 @@ namespace DataAccess.AdventureWorks.EF.Repositories
         where TResult : class
         where T : class
     {
-        public IQueryable<TResult> Cache(Func<IEnumerable<T>, IQueryable<TResult>> mapper,
+        protected IQueryable<TResult> Cache(Func<IEnumerable<T>, IQueryable<TResult>> mapper,
             Expression<Func<T, bool>> filter = null, bool useCache = true)
         {
             const string key = nameof(TResult);
@@ -32,6 +32,11 @@ namespace DataAccess.AdventureWorks.EF.Repositories
             MemoryCacheService.Add(data, key, DateTimeOffset.Now.AddHours(12));
 
             return data.AsQueryable();
+        }
+
+        protected void ClearCache()
+        {
+            MemoryCacheService.Clear(nameof(TResult));
         }
     }
 }

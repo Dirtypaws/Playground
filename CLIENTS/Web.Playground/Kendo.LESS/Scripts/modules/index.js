@@ -8,12 +8,29 @@
         reorderable: true,
         selectable: "row",
         columnMenu: true,
+        filterable: {
+            mode: "row"
+        },
         pageable: {
             pageSize: 20
         },
         columns: [
-            { field: "LastName" },
-            { field: "FirstName" }
+            {
+                field: "LastName",
+                filterable: {
+                    cell: {
+                        operator: "contains"
+                    }
+                }
+            },
+            {
+                field: "FirstName",
+                filterable: {
+                    cell: {
+                        operator: "contains"
+                    }
+                }
+            }
         ],
         dataSource: {
             type: "signalr",
@@ -28,7 +45,7 @@
                     }
                 }
             },
-            sort: [{ field: "LastName", dir: "asc" }],
+            //sort: [{ field: "LastName", dir: "asc" }],
             transport: {
                 signalr: {
                     promise: App.promise,
@@ -50,7 +67,7 @@
     }).data("kendoGrid");
 
     var create = function() {
-        App._hub.server.create();
+        App.Modal(_rootUrl + "Home/AddPerson");
     }
 
     App._hub.client.get = function(e) {

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AW\IPersonRepository.cs" />
+    <Compile Include="AW\ISalesPersonRepository.cs" />
     <Compile Include="ICRUDRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

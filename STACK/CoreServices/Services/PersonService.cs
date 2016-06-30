@@ -22,7 +22,7 @@ namespace CoreServices.Services
 
         public Person Create(Person data)
         {
-            throw new NotImplementedException();
+            return _personRepo.Create(data);
         }
 
         public IEnumerable<Person> Get(Expression<Func<Person, bool>> filter = null, Func<IQueryable<Person>, IOrderedQueryable<Person>> orderBy = null, bool useCache = true, bool includeChildEntities = false)

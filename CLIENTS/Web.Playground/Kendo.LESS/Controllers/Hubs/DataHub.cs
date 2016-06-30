@@ -24,10 +24,9 @@ namespace Kendo.LESS.Controllers
 
         public Person Create(Person data)
         {
-            var person = new Person();
+            var person = _personSvc.Create(data);
 
             Clients.Others.Create(person);
-            
 
             return person;
         }

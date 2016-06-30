@@ -9,5 +9,10 @@ namespace Kendo.LESS.Controllers
             return View();
         }
 
+        public ActionResult AddPerson()
+        {
+            return View("modals/AddPerson");
+        }
+
     }
 }

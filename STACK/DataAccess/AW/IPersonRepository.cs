@@ -4,6 +4,7 @@ namespace DataAccess.AW
 {
     public interface IPersonRepository : ICRUDRepository<Person>
     {
+        
          
     }
 }

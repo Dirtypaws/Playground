@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BusinessObjects.Person
 {
@@ -26,7 +27,7 @@ namespace BusinessObjects.Person
         public Guid rowguid { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        public int[] TerritoryIDs { get; set; }
+        public IList<Phone> Phones { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";
         public string ProperName => $"{LastName}, {FirstName}";

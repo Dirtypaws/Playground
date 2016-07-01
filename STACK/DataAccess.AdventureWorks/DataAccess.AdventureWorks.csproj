@@ -143,6 +143,7 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Mappers\PersonMapper.cs" />
+    <Compile Include="EF\Mappers\PhoneMapper.cs" />
     <Compile Include="EF\Password.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -210,6 +211,7 @@
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Repositories\PersonRepository.cs" />
+    <Compile Include="EF\Repositories\PhoneRepository.cs" />
     <Compile Include="EF\Repositories\_base\CacheRepository.cs" />
     <Compile Include="EF\SalesOrderDetail.cs">
       <DependentUpon>Data.tt</DependentUpon>

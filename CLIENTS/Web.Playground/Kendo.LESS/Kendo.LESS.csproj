@@ -184,6 +184,12 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Hubs\DataHub.cs" />
+    <Compile Include="Controllers\Hubs\PersonHub.cs">
+      <DependentUpon>DataHub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Hubs\PhoneHub.cs">
+      <DependentUpon>DataHub.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,6 +218,8 @@
     <Content Include="bower_components\kendo\bootstrap-mapper.less" />
     <Content Include="bower_components\kendo\type-bootstrap.less" />
     <Content Include="bower_components\kendo\kendo.common-bootstrap.less" />
+    <Content Include="bower_components\bootstrap\awesome-bootstrap-checkbox.less" />
+    <Content Include="bower_components\bootstrap\modals.less" />
     <None Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\modals\AddPerson.cshtml" />
     <None Include="Web.Debug.config">

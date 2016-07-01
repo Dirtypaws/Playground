@@ -15,7 +15,8 @@ namespace DataAccess.AdventureWorks.EF.Mappers
             {
                 ID = entity.BusinessEntityID,
                 FirstName = entity.FirstName,
-                LastName = entity.LastName
+                LastName = entity.LastName,
+                //PhoneNums = entity.PersonPhones.Select(x => x.PhoneNumber).ToArray()
             };
         }
 

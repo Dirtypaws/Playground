@@ -10,8 +10,7 @@ namespace DataAccess
         T Create(T data);
 
         IEnumerable<T> Get(Expression<Func<T, bool>> filter = null,
-            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, bool useCache = true,
-            bool includeChildEntities = false);
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, bool useCache = true);
 
         T Update(T data);
         void Delete(T data);

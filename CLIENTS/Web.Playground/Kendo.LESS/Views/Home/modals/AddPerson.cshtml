@@ -24,10 +24,13 @@
 
 
         <div class="modal-footer">
+            <div class="checkbox checkbox-primary pull-left">
+                <input id="mdl_chk_keepOpen" class="styled" type="checkbox" checked/>
                 <label for="mdl_chk_keepOpen">Create another</label>
-                <input id="mdl_chk_keepOpen" type="checkbox" checked style="margin-right: 12px;" />
-            <button type="button" class="btn btn-primary" onclick="AddPerson.Save()"><i class="fa fa-save"></i> Save</button>
+            </div>
+
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="AddPerson.Save()"><i class="fa fa-save"></i> Save</button>
         </div>
     </div>
 </div>

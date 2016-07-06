@@ -159,7 +159,7 @@
 
     function _person_change(a, b) {
         var selected = grd_persons.dataItem(grd_persons.select());
-        console.log("person", selected);
+        
         if (selected) {
             grd_phones.dataSource.filter({
                 field: "PersonID",
@@ -173,6 +173,7 @@
 
     function _phone_change() {
         var selected = grd_phones.dataItem(grd_phones.select());
+
         if (selected) {
             grd_persons.dataSource.filter({
                 field: "Phones",
@@ -183,6 +184,7 @@
                 },
                 value: selected.PhoneNumber
             });
+
         } else {
             grd_persons.dataSource.filter({});
         }

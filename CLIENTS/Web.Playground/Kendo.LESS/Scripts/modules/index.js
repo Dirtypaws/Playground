@@ -159,6 +159,7 @@
 
     function _person_change(a, b) {
         var selected = grd_persons.dataItem(grd_persons.select());
+        console.log("person", selected);
         if (selected) {
             grd_phones.dataSource.filter({
                 field: "PersonID",
@@ -173,16 +174,15 @@
     function _phone_change() {
         var selected = grd_phones.dataItem(grd_phones.select());
         if (selected) {
-            //grd_persons.dataSource.filter({
-            //    field: "PhoneNums",
-            //    operator: function (itm, val) {
-            //        console.log(itm, val);
-            //        if (itm.indexOf(val) != -1)
-            //            return true;
-            //        return false;
-            //    },
-            //    value: selected.PhoneNumber
-            //});
+            grd_persons.dataSource.filter({
+                field: "Phones",
+                operator: function (itm, val) {
+                    if (itm.map(function (item) { return item.PhoneNumber; }).indexOf(val) != -1)
+                        return true;
+                    return false;
+                },
+                value: selected.PhoneNumber
+            });
         } else {
             grd_persons.dataSource.filter({});
         }

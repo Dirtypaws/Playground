@@ -29,10 +29,10 @@ namespace CoreServices.Services
 
         public IEnumerable<Person> Get(Expression<Func<Person, bool>> filter = null, Func<IQueryable<Person>, IOrderedQueryable<Person>> orderBy = null, bool useCache = true, bool includeChildEntities = false)
         {
-            var data = _personRepo.Get();
-            //var phones = _phoneRepo.Get();
-            //foreach (var person in data)
-            //    person.Phones = phones.Where(x => x.PersonID == person.ID).ToList();
+            var data = _personRepo.Get().ToArray();
+            var phones = _phoneRepo.Get().ToArray();
+            foreach (var person in data)
+                person.Phones = phones.Where(x => x.PersonID == person.ID).ToList();
 
             return data;
         }

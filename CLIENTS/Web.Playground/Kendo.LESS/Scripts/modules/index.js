@@ -149,6 +149,14 @@
         App.Modal(_rootUrl + "Home/AddPhone");
     }
 
+    var resetPersonFilter = function() {
+        grd_persons.dataSource.filter({});
+    }
+
+    var resetPhoneFilter = function() {
+        grd_phones.dataSource.filter({});
+    }
+
     App._hub.client.get = function(e) {
         console.log(e);
     }
@@ -196,6 +204,8 @@
             Grid_Phones: grd_phones
         },
         CreatePerson: createPerson,
-        CreatePhone: createPhone
+        CreatePhone: createPhone,
+        ResetPersonFilter: resetPersonFilter,
+        ResetPhoneFilter: resetPhoneFilter
     };
 }());

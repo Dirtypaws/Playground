@@ -31,7 +31,6 @@
 
   .panel-controls {
       float: right;
-      margin-right: -15px;
       background-color: lighten(@gray-lighter, 3.5%);
 
       
@@ -86,20 +85,24 @@
       }
 
       .action {
+          margin-right: -5px;
           padding: 2px 8px;
           font-size: 23px;
           border-color: @gray-lighter;
           border-left-width: 2px;
           border-left-style: solid;
-          &.danger { padding-right: 5px; }
           &:hover {
               text-decoration: none;
           }
-          &.success { color: @brand-success }
-          &.primary { color: @brand-primary }
+          &.success { color: @brand-success; }
+          &.primary { color: @brand-primary; }
           &.info { color: @brand-info }
-          &.danger { color: @brand-danger }
-          &.warning { color: @brand-warning }
+          &.danger { color: @brand-danger; }
+          &.warning { color: @brand-warning; }
+          &:last-of-type {
+              margin-right: 0;
+              padding-left: 8px;
+          }
       }
 
   }

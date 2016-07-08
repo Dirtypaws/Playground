@@ -45,7 +45,8 @@ gulp.task("js:libs", function() {
             paths.src + "**/dist/jquery.js",
             paths.src + "**/dist/js/bootstrap.js",
             paths.src + "**/routie.js",
-            paths.src + "**/kendo.web.js"
+            paths.src + "**/kendo.web.js",
+            paths.src + "**/ractive.js"
             //paths.src + "**/bootstrap-toggle.js"
         ])
         .pipe(concat("libs.min.js"))

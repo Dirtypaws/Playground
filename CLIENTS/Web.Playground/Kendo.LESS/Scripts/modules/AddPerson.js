@@ -8,15 +8,15 @@
             LastName: lastName
         }
 
-        App._hub.server.create(person);
+        App._hub.server.create(person).fail(function (err) { console.log("createPerson error: " + err); });
 
         if (!$("#mdl_chk_keepOpen").is(":checked"))
             $("#_modal").modal("hide");
     };
 
-    $(".modal-body input").on("keypress", function(e) {
-        if (e.keyCode == 13) save();
-    });
+    //$(".modal-body input").on("keypress", function(e) {
+    //    if (e.keyCode == 13) save();
+    //});
 
     return {
         Save: save

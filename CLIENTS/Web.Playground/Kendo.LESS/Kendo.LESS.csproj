@@ -222,6 +222,7 @@
     <Content Include="bower_components\bootstrap\modals.less" />
     <None Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\modals\AddPerson.cshtml" />
+    <Content Include="Views\Home\Ractive.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

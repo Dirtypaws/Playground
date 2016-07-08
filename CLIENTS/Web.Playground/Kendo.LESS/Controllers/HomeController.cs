@@ -14,5 +14,10 @@ namespace Kendo.LESS.Controllers
             return View("modals/AddPerson");
         }
 
+        public ActionResult Ractive()
+        {
+            return View();
+        }
+
     }
 }

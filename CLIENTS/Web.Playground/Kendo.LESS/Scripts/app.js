@@ -8,9 +8,9 @@
         mod.modal("show");
     };
 
-    hub.error(function(error) {
-        console.log("SignalR error: " + error);
-    });
+    //hub.error(function(error) {
+    //    console.log("SignalR error: " + error);
+    //});
 
     return {
         promise: start,

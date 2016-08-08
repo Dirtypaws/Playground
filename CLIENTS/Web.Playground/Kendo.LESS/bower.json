@@ -8,6 +8,7 @@
         "jquery": "^3.0.0",
         "bootstrap-toggle": "^2.2.2",
         "awesome-bootstrap-checkbox": "^0.3.7",
-        "ractive": "^0.7.3"
+        "ractive": "^0.7.3",
+        "pnotify": "^3.0.0"
     }
 }

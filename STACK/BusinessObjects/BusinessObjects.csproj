@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data.cs" />
+    <Compile Include="Lookup.cs" />
     <Compile Include="Person\Person.cs" />
     <Compile Include="Person\Phone.cs" />
     <Compile Include="Person\SalesPerson.cs" />
+    <Compile Include="Playground\Phone.cs" />
+    <Compile Include="Playground\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -69,9 +69,12 @@
     <Folder Include="roster\" />
     <Folder Include="roster\Tables\" />
     <Folder Include="Security\" />
+    <Folder Include="_seedData\roster" />
+    <Folder Include="_seedData\dbo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="_publish\LOCAL.publish.xml" />
+    <None Include="_seedData\roster\Players.sql" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)' == 'Debug'">
     <PreDeploy Include="_publish\deploy\LOCAL.PreDeployment.sql" />
@@ -107,5 +110,9 @@
     <Build Include="dbo\Tables\Position.sql" />
     <Build Include="Security\calendar.sql" />
     <Build Include="Security\roster.sql" />
+    <None Include="_seedData\dbo\ContactTypes.sql" />
+    <None Include="_seedData\dbo\EventTypes.sql" />
+    <None Include="_seedData\dbo\JerseySizes.sql" />
+    <None Include="_seedData\dbo\Positions.sql" />
   </ItemGroup>
 </Project>

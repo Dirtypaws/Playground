@@ -9,3 +9,14 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+
+:r ../../_seedData/dbo/ContactTypes.sql
+:r ../../_seedData/dbo/Positions.sql
+:r ../../_seedData/dbo/JerseySizes.sql
+:r ../../_seedData/dbo/EventTypes.sql
+
+:r ../../_seedData/roster/Players.sql
+--:r ../../_seedData/roster/Emails.sql
+--:r ../../_seedData/roster/Phones.sql
+
+--:r ../../_seedData/calendar/Events.sql

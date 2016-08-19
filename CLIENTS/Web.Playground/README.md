@@ -5,11 +5,11 @@ This Solution contains an assortment of web projects (MVC, REST, OWN Self-Host) 
 ## Projects
 
 ### Kendo.LESS
+*(not included in solution)*
  
 Intially this project was just a demo for how to use CSS Preprocessors for Kendo UI. There's some good stuff, including signalr usage in the project - but - it's based on AdventureWorks and decided the Playground project was better suited to handle the examples
 
 ### Playground
-*(not included in solution)*
 
 This is the primary web application that features the use of Gulp, CSS preprocessors, KendoUI and much more. It's based on a skeleton SSDT project taken from my hockey team application.
 

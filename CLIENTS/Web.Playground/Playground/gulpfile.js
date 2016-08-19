@@ -55,6 +55,9 @@ gulp.task("js:libs", function () {
 });
 
 gulp.task("js:app", function () {
+    gulp.src(["Scripts/**", "!Scripts/*.js"], {base: "Scripts"})
+        .pipe(gulp.dest(dest));
+
     return gulp.src([
             "Scripts/*.js",
             "!Scripts/*.min.js"
@@ -117,8 +120,8 @@ gulp.task("watch", function () {
         gulp.start("css:libs");
     });
 
-    watch("./Content/*/*.less", function () {
-        gulp.start("css:libs");
+    watch("./Content/**/*.less", function () {
+        gulp.start("css:app");
     });
 
     watch("./Scripts/*.js", function () {

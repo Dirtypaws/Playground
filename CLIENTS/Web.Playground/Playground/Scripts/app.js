@@ -7,6 +7,9 @@
         },
         "main": function() {
             content.load(_rootUrl + "Home/Main");
+        },
+        "bootstrap": function() {
+            content.load(_rootUrl + "Bootstrap/Index");
         }
     });
 }());

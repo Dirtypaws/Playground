@@ -28,6 +28,7 @@ This is the primary web application that features the use of Gulp, CSS preproces
 * Mapper inversion
 * CRUD Principals
 * web.config indirection
+* Module Revealing Pattern in Javascript
 
 #### Up and running
 

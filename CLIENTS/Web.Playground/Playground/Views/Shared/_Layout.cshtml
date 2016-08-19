@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <script src="@Url.Content("~/wwwroot/libs.min.js")"></script>
+    <link rel="stylesheet" href="@Url.Content("~/wwwroot/libs.min.css")"/>
+
+    <style>
+        .fa.k-sprite,
+        .fa.k-sprite::before {
+            font-size: 12px;
+            line-height: 12px;
+        }
+    </style>
+
+
+    <script src="@Url.Content("~/Scripts/jquery.signalR-2.2.1.js")"></script>
+
+    <script src="signalr/hubs"></script>
+
+    <script>
+        var _rootUrl = '@Url.Content("~")';
+    </script>
+</head>
+<body>
+
+<script src="@Url.Content("~/wwwroot/app.min.js")"></script>
+<link rel="stylesheet" href="@Url.Content("~/wwwroot/app.min.css")"/>
+
+
+<div id="body">
+    <div id="content">
+        @RenderBody()
+    </div>
+</div>
+
+<div class="modal fade" id="_modal" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true"></div>
+
+
+<script src="@Url.Content("~/Scripts/jquery.signalR-2.2.1.js")"></script>
+
+<script src="signalr/hubs"></script>
+
+<script src="@Url.Content("~/wwwroot/app.min.js")"></script>
+<link rel="stylesheet" href="@Url.Content("~/wwwroot/app.min.css")"/>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+var Main=function(){var o=$("#examples").isotope({itemSelector:".grid-item",layout:"masonry",masonry:{columnWidth:240}});return $(".grid-item").on("click",function(o){window.location.href=_rootUrl+$(this).attr("data-url")}),{_controls:{iso:o}}}();

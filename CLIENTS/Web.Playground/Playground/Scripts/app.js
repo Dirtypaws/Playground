@@ -10,6 +10,9 @@
         },
         "bootstrap": function() {
             content.load(_rootUrl + "Bootstrap/Index");
+        },
+        "kendo/grid": function() {
+            content.load(_rootUrl + "Kendo/Grid");
         }
     });
 }());

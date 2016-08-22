@@ -46,7 +46,8 @@ gulp.task("js:libs", function () {
             paths.src + "**/dist/js/bootstrap.js",
             paths.src + "**/routie.js",
             paths.src + "**/kendo.web.js",
-            paths.src + "**/pnotify.js"
+            paths.src + "**/pnotify.js",
+            paths.src + "**/isotope.pkgd.js"
             //paths.src + "**/bootstrap-toggle.js"
     ])
         .pipe(concat("libs.min.js"))
@@ -55,7 +56,8 @@ gulp.task("js:libs", function () {
 });
 
 gulp.task("js:app", function () {
-    gulp.src(["Scripts/**", "!Scripts/*.js"], {base: "Scripts"})
+    gulp.src(["Scripts/**", "!Scripts/*.js"], { base: "Scripts" })
+        .pipe(uglify())
         .pipe(gulp.dest(dest));
 
     return gulp.src([

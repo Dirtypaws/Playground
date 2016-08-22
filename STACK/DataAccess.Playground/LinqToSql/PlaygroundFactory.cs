@@ -47,4 +47,3 @@ namespace DataAccess.Playground.LinqToSql
     }
 
 }
-}

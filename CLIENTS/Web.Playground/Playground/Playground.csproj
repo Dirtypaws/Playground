@@ -124,6 +124,7 @@
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\main\index.js" />
     <Content Include="Web.config" />
     <Content Include="wwwroot\app.min.css" />
     <Content Include="wwwroot\app.min.js" />
@@ -146,15 +147,18 @@
     <Content Include="wwwroot\images\sprite_kpi_2x.png" />
     <Content Include="wwwroot\libs.min.css" />
     <Content Include="wwwroot\libs.min.js" />
+    <Content Include="wwwroot\main\index.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\BootstrapController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KendoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Example.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +190,12 @@
     <Content Include="Views\Bootstrap\Index.cshtml" />
     <Content Include="Scripts\bootstrap\index.js" />
     <Content Include="bower_components\bootstrap\forms.less" />
+    <Content Include="bower_components\bootstrap\navbar.less" />
+    <Content Include="Views\Kendo\Grid.cshtml" />
+    <Content Include="Content\isotope.less" />
+    <Content Include="..\Palette.less">
+      <Link>bower_components\Palette.less</Link>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,7 +214,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

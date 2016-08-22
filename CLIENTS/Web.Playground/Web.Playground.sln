@@ -35,6 +35,11 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PlaygroundDb", "..\..\DATA\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.Playground", "..\..\STACK\DataAccess.Playground\DataAccess.Playground.csproj", "{6AC00252-D60E-46B5-99AA-1B20EA201E6A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Shared", "_Shared", "{67AB2018-0466-48A9-892E-6B63ED9140DA}"
+	ProjectSection(SolutionItems) = preProject
+		Palette.less = Palette.less
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -17,7 +17,7 @@ namespace DataAccess.Playground.LinqToSql.Repositories
 
         public sealed override IMapper<TResult, T> Mapper { get; set; }
 
-        public TResult Create(TResult data)
+        public virtual TResult Create(TResult data)
         {
             using (var db = PlaygroundFactory.CreateContext())
             {
@@ -32,7 +32,7 @@ namespace DataAccess.Playground.LinqToSql.Repositories
             }
         }
 
-        public IEnumerable<TResult> Get(Expression<Func<TResult, bool>> filter = null,
+        public virtual IEnumerable<TResult> Get(Expression<Func<TResult, bool>> filter = null,
             Func<IQueryable<TResult>, IOrderedQueryable<TResult>> orderBy = null, bool useCache = true)
         {
             var data = Cache(useCache);
@@ -43,7 +43,7 @@ namespace DataAccess.Playground.LinqToSql.Repositories
             return data;
         }
 
-        public TResult Update(TResult data)
+        public virtual TResult Update(TResult data)
         {
             using (var db = PlaygroundFactory.CreateContext())
             {
@@ -56,7 +56,7 @@ namespace DataAccess.Playground.LinqToSql.Repositories
             }
         }
 
-        public void Delete(TResult data)
+        public virtual void Delete(TResult data)
         {
             using (var db = PlaygroundFactory.CreateContext())
             {

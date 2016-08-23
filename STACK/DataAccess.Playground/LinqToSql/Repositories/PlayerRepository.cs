@@ -11,7 +11,7 @@ namespace DataAccess.Playground.LinqToSql.Repositories
         public PlayerRepository() : base(new PlayerMapper()) { }
         public override Expression<Func<Player, bool>> cacheFilter { get { return x => x.Number.HasValue; } }
 
-        public new void Delete(BO.Player data)
+        public override void Delete(BO.Player data)
         {
             using (var db = PlaygroundFactory.CreateContext())
             {

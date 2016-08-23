@@ -38,7 +38,7 @@ namespace DataAccess.Integration.Playground
             });
 
             Assert.Greater(entity.ID, 0);
-            Console.WriteLine("Inserted Wayne Gretzky");
+            Console.WriteLine($"Inserted {entity.FullName}");
         }
 
         [Test]
@@ -59,27 +59,31 @@ namespace DataAccess.Integration.Playground
         public void Update_Test()
         {
             var data = _playerRepo.Get().ToList();
-            var entity = data.FirstOrDefault(x => x.ID == data.Max(y => y.ID));
+            var max = data.FirstOrDefault(x => x.ID == data.Max(y => y.ID));
 
-            Console.WriteLine($"Retrieved: {entity.FullName} - #{entity.Number} - ID: {entity.ID}");
+            Console.WriteLine($"Retrieved: {max.ProperName} - #{max.Number} - ID: {max.ID}");
 
-            var id = entity.ID;
-            entity.FirstName = "Gordie";
-            entity.LastName = "Howe";
+            var id = max.ID;
+            max.FirstName = "Gordie";
+            max.LastName = "Howe";
 
-            entity.Number = 9;
-            entity.PracticeNumber = 9;
+            max.Number = 9;
+            max.PracticeNumber = 9;
 
-            var result = _playerRepo.Update(entity);
-            Assert.AreEqual(entity.FullName, result.FullName, "FullName: Update did not properly occur");
-            Assert.AreEqual(entity.Number, result.Number, "Number: Update did not properly occur");
-            Assert.AreEqual(entity.PracticeNumber, result.PracticeNumber, "Number: Update did not properly occur");
+            var result = _playerRepo.Update(max);
+            Assert.AreEqual(max.FullName, result.FullName, "FullName: Update did not properly occur");
+            Assert.AreEqual(max.Number, result.Number, "Number: Update did not properly occur");
+            Assert.AreEqual(max.PracticeNumber, result.PracticeNumber, "Number: Update did not properly occur");
+
+            Console.WriteLine($"Updated {max.ID} to: {max.ProperName} - #{max.Number}");
 
             // Check for the cache refresh
             var cache = _playerRepo.Get(x => x.ID == id).FirstOrDefault();
-            Assert.AreEqual(entity.FullName, cache.FullName, "FullName: Cached object was not refreshed");
-            Assert.AreEqual(entity.Number, cache.Number, "Number: Cached object was not refreshed");
-            Assert.AreEqual(entity.PracticeNumber, cache.PracticeNumber, "Number: Cached object was not refreshed");
+            Assert.AreEqual(max.FullName, cache.FullName, "FullName: Cached object was not refreshed");
+            Assert.AreEqual(max.Number, cache.Number, "Number: Cached object was not refreshed");
+            Assert.AreEqual(max.PracticeNumber, cache.PracticeNumber, "Number: Cached object was not refreshed");
+
+            Console.WriteLine($"Updated {max.ID}; Cache refreshed");
         }
 
         [Test]
@@ -88,10 +92,14 @@ namespace DataAccess.Integration.Playground
             var data = _playerRepo.Get().ToList();
             var max = data.FirstOrDefault(x => x.ID == data.Max(y => y.ID));
 
+            Console.WriteLine($"Retrieved: {max.FullName} - #{max.Number} - ID: {max.ID}");
+            
             _playerRepo.Delete(max);
 
             var deleted = _playerRepo.Get(x => x.ID == max.ID);
             Assert.IsEmpty(deleted, "The record was not deleted from the cache.");
+
+            Console.WriteLine($"Deleted {max.ID}; Cache refreshed");
 
         }
 

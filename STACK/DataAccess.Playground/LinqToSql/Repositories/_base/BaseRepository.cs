@@ -52,7 +52,7 @@ namespace DataAccess.Playground.LinqToSql.Repositories
 
                 var table = db.GetTable<T>();
                 table.Attach(entity);
-                db.Refresh(RefreshMode.KeepChanges, entity);
+                db.Refresh(RefreshMode.KeepCurrentValues, entity);
 
                 db.SubmitChanges();
 

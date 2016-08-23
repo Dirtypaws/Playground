@@ -86,12 +86,12 @@ namespace DataAccess.Integration.Playground
         public void Delete_Test()
         {
             var data = _playerRepo.Get().ToList();
-            var maxId = data.FirstOrDefault(x => x.ID == data.Max(y => y.ID));
+            var max = data.FirstOrDefault(x => x.ID == data.Max(y => y.ID));
 
-            _playerRepo.Delete(maxId);
+            _playerRepo.Delete(max);
 
-            var deleted = _playerRepo.Get(x => x.ID == maxId.ID);
-            Assert.IsNull(deleted, "The record was not deleted from the cache.");
+            var deleted = _playerRepo.Get(x => x.ID == max.ID);
+            Assert.IsEmpty(deleted, "The record was not deleted from the cache.");
 
         }
 

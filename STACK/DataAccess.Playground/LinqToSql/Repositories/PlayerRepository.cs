@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Linq;
 using System.Linq;
 using System.Linq.Expressions;
 using DataAccess.Playground.LinqToSql.Mappers;
@@ -19,7 +18,7 @@ namespace DataAccess.Playground.LinqToSql.Repositories
                 if (entity == null) return;
 
                 entity.Number = null;
-                db.Refresh(RefreshMode.KeepCurrentValues, entity);
+                //db.Refresh(RefreshMode.KeepCurrentValues, entity);
 
                 db.SubmitChanges();
 

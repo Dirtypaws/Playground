@@ -18,7 +18,7 @@ namespace DataAccess.Playground.LinqToSql.Repositories
 
         protected IQueryable<TResult> Cache(bool useCache = true)
         {
-            const string key = nameof(TResult);
+            string key = typeof(TResult).Name;
 
             var data = MemoryCacheService.Get<IQueryable<TResult>>(key);
             if (!useCache) data = null;
@@ -39,7 +39,7 @@ namespace DataAccess.Playground.LinqToSql.Repositories
 
         protected void RefreshCache(DataContext db)
         {
-            const string key = nameof(T);
+            string key = typeof(TResult).Name;
             MemoryCacheService.Clear(key);
 
             var query = db.GetTable<T>().AsQueryable();

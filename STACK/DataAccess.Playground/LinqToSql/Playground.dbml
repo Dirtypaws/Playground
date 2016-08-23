@@ -70,6 +70,20 @@
       <Association Name="Player_Phone" Member="Player" ThisKey="PlayerId" OtherKey="Id" Type="Player" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="calendar.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Opponent" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IsHome" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="EventType_Event" Member="EventType" ThisKey="EventTypeId" OtherKey="Id" Type="EventType" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="roster.Player" Member="Players">
     <Type Name="Player">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -89,20 +103,6 @@
       <Association Name="Player_Phone" Member="Phones" ThisKey="Id" OtherKey="PlayerId" Type="Phone" />
       <Association Name="JerseySize_Player" Member="JerseySize" ThisKey="JerseySizeId" OtherKey="Id" Type="JerseySize" IsForeignKey="true" />
       <Association Name="Position_Player" Member="Position" ThisKey="PositionId" OtherKey="Id" Type="Position" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="calendar.Event" Member="Events">
-    <Type Name="Event">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="EventTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
-      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="Opponent" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="IsHome" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Url" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
-      <Column Name="Location" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
-      <Column Name="Cost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Association Name="EventType_Event" Member="EventType" ThisKey="EventTypeId" OtherKey="Id" Type="EventType" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

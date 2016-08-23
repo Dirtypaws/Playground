@@ -203,13 +203,12 @@
       <Link>bower_components\Palette.less</Link>
     </Content>
     <Content Include="bower_components\select2\core.scss" />
-    <Content Include="bower_components\select2\theme\layout.scss" />
-    <Content Include="bower_components\select2\theme\_defaults.scss" />
-    <Content Include="bower_components\select2\theme\_multiple.scss" />
-    <Content Include="bower_components\select2\theme\_single.scss" />
     <Content Include="..\Palette.scss">
       <Link>bower_components\Palette.scss</Link>
     </Content>
+    <Content Include="bower_components\select2\default\layout.scss" />
+    <Content Include="bower_components\select2\default\_multiple.scss" />
+    <Content Include="bower_components\select2\default\_single.scss" />
     <None Include="Views\Kendo\FilterRow.cshtml" />
     <None Include="Views\Kendo\SignalR.cshtml" />
     <None Include="Web.Debug.config">

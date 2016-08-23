@@ -51,12 +51,12 @@ namespace DataAccess.Playground.LinqToSql
     partial void InsertPhone(Phone instance);
     partial void UpdatePhone(Phone instance);
     partial void DeletePhone(Phone instance);
-    partial void InsertPlayer(Player instance);
-    partial void UpdatePlayer(Player instance);
-    partial void DeletePlayer(Player instance);
     partial void InsertEvent(Event instance);
     partial void UpdateEvent(Event instance);
     partial void DeleteEvent(Event instance);
+    partial void InsertPlayer(Player instance);
+    partial void UpdatePlayer(Player instance);
+    partial void DeletePlayer(Player instance);
     #endregion
 		
 		public PlaygroundContext() : 
@@ -145,19 +145,19 @@ namespace DataAccess.Playground.LinqToSql
 			}
 		}
 		
-		public System.Data.Linq.Table<Player> Players
-		{
-			get
-			{
-				return this.GetTable<Player>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Event> Events
 		{
 			get
 			{
 				return this.GetTable<Event>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Player> Players
+		{
+			get
+			{
+				return this.GetTable<Player>();
 			}
 		}
 	}
@@ -1541,6 +1541,301 @@ namespace DataAccess.Playground.LinqToSql
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="calendar.Event")]
+	public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _EventTypeId;
+		
+		private System.DateTime _StartTime;
+		
+		private System.Nullable<System.DateTime> _EndTime;
+		
+		private string _Opponent;
+		
+		private System.Nullable<bool> _IsHome;
+		
+		private string _Url;
+		
+		private string _Location;
+		
+		private System.Nullable<decimal> _Cost;
+		
+		private EntityRef<EventType> _EventType;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnEventTypeIdChanging(int value);
+    partial void OnEventTypeIdChanged();
+    partial void OnStartTimeChanging(System.DateTime value);
+    partial void OnStartTimeChanged();
+    partial void OnEndTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndTimeChanged();
+    partial void OnOpponentChanging(string value);
+    partial void OnOpponentChanged();
+    partial void OnIsHomeChanging(System.Nullable<bool> value);
+    partial void OnIsHomeChanged();
+    partial void OnUrlChanging(string value);
+    partial void OnUrlChanged();
+    partial void OnLocationChanging(string value);
+    partial void OnLocationChanged();
+    partial void OnCostChanging(System.Nullable<decimal> value);
+    partial void OnCostChanged();
+    #endregion
+		
+		public Event()
+		{
+			this._EventType = default(EntityRef<EventType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventTypeId", DbType="Int NOT NULL")]
+		public int EventTypeId
+		{
+			get
+			{
+				return this._EventTypeId;
+			}
+			set
+			{
+				if ((this._EventTypeId != value))
+				{
+					if (this._EventType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEventTypeIdChanging(value);
+					this.SendPropertyChanging();
+					this._EventTypeId = value;
+					this.SendPropertyChanged("EventTypeId");
+					this.OnEventTypeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartTime", DbType="DateTime2 NOT NULL")]
+		public System.DateTime StartTime
+		{
+			get
+			{
+				return this._StartTime;
+			}
+			set
+			{
+				if ((this._StartTime != value))
+				{
+					this.OnStartTimeChanging(value);
+					this.SendPropertyChanging();
+					this._StartTime = value;
+					this.SendPropertyChanged("StartTime");
+					this.OnStartTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> EndTime
+		{
+			get
+			{
+				return this._EndTime;
+			}
+			set
+			{
+				if ((this._EndTime != value))
+				{
+					this.OnEndTimeChanging(value);
+					this.SendPropertyChanging();
+					this._EndTime = value;
+					this.SendPropertyChanged("EndTime");
+					this.OnEndTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Opponent", DbType="NVarChar(128)")]
+		public string Opponent
+		{
+			get
+			{
+				return this._Opponent;
+			}
+			set
+			{
+				if ((this._Opponent != value))
+				{
+					this.OnOpponentChanging(value);
+					this.SendPropertyChanging();
+					this._Opponent = value;
+					this.SendPropertyChanged("Opponent");
+					this.OnOpponentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsHome", DbType="Bit")]
+		public System.Nullable<bool> IsHome
+		{
+			get
+			{
+				return this._IsHome;
+			}
+			set
+			{
+				if ((this._IsHome != value))
+				{
+					this.OnIsHomeChanging(value);
+					this.SendPropertyChanging();
+					this._IsHome = value;
+					this.SendPropertyChanged("IsHome");
+					this.OnIsHomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Url", DbType="NVarChar(256)")]
+		public string Url
+		{
+			get
+			{
+				return this._Url;
+			}
+			set
+			{
+				if ((this._Url != value))
+				{
+					this.OnUrlChanging(value);
+					this.SendPropertyChanging();
+					this._Url = value;
+					this.SendPropertyChanged("Url");
+					this.OnUrlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="NVarChar(512)")]
+		public string Location
+		{
+			get
+			{
+				return this._Location;
+			}
+			set
+			{
+				if ((this._Location != value))
+				{
+					this.OnLocationChanging(value);
+					this.SendPropertyChanging();
+					this._Location = value;
+					this.SendPropertyChanged("Location");
+					this.OnLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Money")]
+		public System.Nullable<decimal> Cost
+		{
+			get
+			{
+				return this._Cost;
+			}
+			set
+			{
+				if ((this._Cost != value))
+				{
+					this.OnCostChanging(value);
+					this.SendPropertyChanging();
+					this._Cost = value;
+					this.SendPropertyChanged("Cost");
+					this.OnCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EventType_Event", Storage="_EventType", ThisKey="EventTypeId", OtherKey="Id", IsForeignKey=true)]
+		public EventType EventType
+		{
+			get
+			{
+				return this._EventType.Entity;
+			}
+			set
+			{
+				EventType previousValue = this._EventType.Entity;
+				if (((previousValue != value) 
+							|| (this._EventType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EventType.Entity = null;
+						previousValue.Events.Remove(this);
+					}
+					this._EventType.Entity = value;
+					if ((value != null))
+					{
+						value.Events.Add(this);
+						this._EventTypeId = value.Id;
+					}
+					else
+					{
+						this._EventTypeId = default(int);
+					}
+					this.SendPropertyChanged("EventType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="roster.Player")]
 	public partial class Player : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2030,301 +2325,6 @@ namespace DataAccess.Playground.LinqToSql
 		{
 			this.SendPropertyChanging();
 			entity.Player = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="calendar.Event")]
-	public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private int _EventTypeId;
-		
-		private System.DateTime _StartTime;
-		
-		private System.Nullable<System.DateTime> _EndTime;
-		
-		private string _Opponent;
-		
-		private System.Nullable<bool> _IsHome;
-		
-		private string _Url;
-		
-		private string _Location;
-		
-		private System.Nullable<decimal> _Cost;
-		
-		private EntityRef<EventType> _EventType;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnEventTypeIdChanging(int value);
-    partial void OnEventTypeIdChanged();
-    partial void OnStartTimeChanging(System.DateTime value);
-    partial void OnStartTimeChanged();
-    partial void OnEndTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnEndTimeChanged();
-    partial void OnOpponentChanging(string value);
-    partial void OnOpponentChanged();
-    partial void OnIsHomeChanging(System.Nullable<bool> value);
-    partial void OnIsHomeChanged();
-    partial void OnUrlChanging(string value);
-    partial void OnUrlChanged();
-    partial void OnLocationChanging(string value);
-    partial void OnLocationChanged();
-    partial void OnCostChanging(System.Nullable<decimal> value);
-    partial void OnCostChanged();
-    #endregion
-		
-		public Event()
-		{
-			this._EventType = default(EntityRef<EventType>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventTypeId", DbType="Int NOT NULL")]
-		public int EventTypeId
-		{
-			get
-			{
-				return this._EventTypeId;
-			}
-			set
-			{
-				if ((this._EventTypeId != value))
-				{
-					if (this._EventType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEventTypeIdChanging(value);
-					this.SendPropertyChanging();
-					this._EventTypeId = value;
-					this.SendPropertyChanged("EventTypeId");
-					this.OnEventTypeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartTime", DbType="DateTime2 NOT NULL")]
-		public System.DateTime StartTime
-		{
-			get
-			{
-				return this._StartTime;
-			}
-			set
-			{
-				if ((this._StartTime != value))
-				{
-					this.OnStartTimeChanging(value);
-					this.SendPropertyChanging();
-					this._StartTime = value;
-					this.SendPropertyChanged("StartTime");
-					this.OnStartTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> EndTime
-		{
-			get
-			{
-				return this._EndTime;
-			}
-			set
-			{
-				if ((this._EndTime != value))
-				{
-					this.OnEndTimeChanging(value);
-					this.SendPropertyChanging();
-					this._EndTime = value;
-					this.SendPropertyChanged("EndTime");
-					this.OnEndTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Opponent", DbType="NVarChar(128)")]
-		public string Opponent
-		{
-			get
-			{
-				return this._Opponent;
-			}
-			set
-			{
-				if ((this._Opponent != value))
-				{
-					this.OnOpponentChanging(value);
-					this.SendPropertyChanging();
-					this._Opponent = value;
-					this.SendPropertyChanged("Opponent");
-					this.OnOpponentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsHome", DbType="Bit")]
-		public System.Nullable<bool> IsHome
-		{
-			get
-			{
-				return this._IsHome;
-			}
-			set
-			{
-				if ((this._IsHome != value))
-				{
-					this.OnIsHomeChanging(value);
-					this.SendPropertyChanging();
-					this._IsHome = value;
-					this.SendPropertyChanged("IsHome");
-					this.OnIsHomeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Url", DbType="NVarChar(256)")]
-		public string Url
-		{
-			get
-			{
-				return this._Url;
-			}
-			set
-			{
-				if ((this._Url != value))
-				{
-					this.OnUrlChanging(value);
-					this.SendPropertyChanging();
-					this._Url = value;
-					this.SendPropertyChanged("Url");
-					this.OnUrlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="NVarChar(512)")]
-		public string Location
-		{
-			get
-			{
-				return this._Location;
-			}
-			set
-			{
-				if ((this._Location != value))
-				{
-					this.OnLocationChanging(value);
-					this.SendPropertyChanging();
-					this._Location = value;
-					this.SendPropertyChanged("Location");
-					this.OnLocationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Money")]
-		public System.Nullable<decimal> Cost
-		{
-			get
-			{
-				return this._Cost;
-			}
-			set
-			{
-				if ((this._Cost != value))
-				{
-					this.OnCostChanging(value);
-					this.SendPropertyChanging();
-					this._Cost = value;
-					this.SendPropertyChanged("Cost");
-					this.OnCostChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EventType_Event", Storage="_EventType", ThisKey="EventTypeId", OtherKey="Id", IsForeignKey=true)]
-		public EventType EventType
-		{
-			get
-			{
-				return this._EventType.Entity;
-			}
-			set
-			{
-				EventType previousValue = this._EventType.Entity;
-				if (((previousValue != value) 
-							|| (this._EventType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EventType.Entity = null;
-						previousValue.Events.Remove(this);
-					}
-					this._EventType.Entity = value;
-					if ((value != null))
-					{
-						value.Events.Add(this);
-						this._EventTypeId = value.Id;
-					}
-					else
-					{
-						this._EventTypeId = default(int);
-					}
-					this.SendPropertyChanged("EventType");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }

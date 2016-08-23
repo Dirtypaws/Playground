@@ -81,6 +81,19 @@ namespace DataAccess.Integration.Playground
             Assert.AreEqual(entity.Number, cache.Number, "Number: Cached object was not refreshed");
             Assert.AreEqual(entity.PracticeNumber, cache.PracticeNumber, "Number: Cached object was not refreshed");
         }
-         
+
+        [Test]
+        public void Delete_Test()
+        {
+            var data = _playerRepo.Get().ToList();
+            var maxId = data.FirstOrDefault(x => x.ID == data.Max(y => y.ID));
+
+            _playerRepo.Delete(maxId);
+
+            var deleted = _playerRepo.Get(x => x.ID == maxId.ID);
+            Assert.IsNull(deleted, "The record was not deleted from the cache.");
+
+        }
+
     }
 }

@@ -19,7 +19,7 @@ namespace DataAccess.Playground.LinqToSql.Repositories
                 if (entity == null) return;
 
                 entity.Number = null;
-                db.Refresh(RefreshMode.KeepChanges, entity);
+                db.Refresh(RefreshMode.KeepCurrentValues, entity);
 
                 db.SubmitChanges();
 

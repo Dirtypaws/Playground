@@ -124,6 +124,9 @@
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\kendo\filterRow.js" />
+    <Content Include="Scripts\kendo\grid.js" />
+    <Content Include="Scripts\kendo\signalR.js" />
     <Content Include="Scripts\main\index.js" />
     <Content Include="Web.config" />
     <Content Include="wwwroot\app.min.css" />
@@ -145,6 +148,9 @@
     <Content Include="wwwroot\images\sprite_2x.png" />
     <Content Include="wwwroot\images\sprite_kpi.png" />
     <Content Include="wwwroot\images\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\kendo\filterRow.js" />
+    <Content Include="wwwroot\kendo\grid.js" />
+    <Content Include="wwwroot\kendo\signalR.js" />
     <Content Include="wwwroot\libs.min.css" />
     <Content Include="wwwroot\libs.min.js" />
     <Content Include="wwwroot\main\index.js" />
@@ -196,6 +202,16 @@
     <Content Include="..\Palette.less">
       <Link>bower_components\Palette.less</Link>
     </Content>
+    <Content Include="bower_components\select2\core.scss" />
+    <Content Include="bower_components\select2\theme\layout.scss" />
+    <Content Include="bower_components\select2\theme\_defaults.scss" />
+    <Content Include="bower_components\select2\theme\_multiple.scss" />
+    <Content Include="bower_components\select2\theme\_single.scss" />
+    <Content Include="..\Palette.scss">
+      <Link>bower_components\Palette.scss</Link>
+    </Content>
+    <None Include="Views\Kendo\FilterRow.cshtml" />
+    <None Include="Views\Kendo\SignalR.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

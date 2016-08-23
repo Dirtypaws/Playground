@@ -9,7 +9,8 @@
     "requirejs": "2.1.20",
     "routie": "^0.3.2",
     "pnotify": "^3.0.0",
-    "isotope": "^3.0.1"
+    "isotope": "^3.0.1",
+    "select2": "^4.0.3"
   },
   "resolutions": {
     "jquery": ">=1.6"

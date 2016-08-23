@@ -38,6 +38,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Shared", "_Shared", "{67AB2018-0466-48A9-892E-6B63ED9140DA}"
 	ProjectSection(SolutionItems) = preProject
 		Palette.less = Palette.less
+		Palette.scss = Palette.scss
 	EndProjectSection
 EndProject
 Global

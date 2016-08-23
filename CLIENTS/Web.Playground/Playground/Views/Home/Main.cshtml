@@ -3,6 +3,12 @@
 
 <h1>Main</h1>
 
+<div id="filters" class="row">
+    <div class="col-md-4">
+        <select id="ddl_groups" multiple style="width: 100%;"></select>
+    </div>
+</div>
+
 <div id="examples">
     @foreach (var e in Model)
     {
@@ -30,3 +36,9 @@
 <script>
     $(document).ready(function() { Main._controls.iso.isotope("layout"); });
 </script>
+
+<style>
+    #filters {
+        margin-bottom: 23px;
+    }
+</style>

@@ -9,6 +9,8 @@ var gulp = require("gulp"),
     flatten = require("gulp-flatten"),
     watch = require("gulp-watch"),
     less = require("gulp-less"),
+    sass = require("gulp-sass"),
+    merge = require("merge-stream"),
     dest = "./wwwroot";
 
 var paths = {
@@ -45,9 +47,10 @@ gulp.task("js:libs", function () {
             paths.src + "**/dist/jquery.js",
             paths.src + "**/dist/js/bootstrap.js",
             paths.src + "**/routie.js",
-            paths.src + "**/kendo.web.js",
+            "./bower_components/kendo/**/kendo.web.js",
             paths.src + "**/pnotify.js",
-            paths.src + "**/isotope.pkgd.js"
+            paths.src + "**/isotope.pkgd.js",
+            paths.src + "**/select2.js"
             //paths.src + "**/bootstrap-toggle.js"
     ])
         .pipe(concat("libs.min.js"))
@@ -84,16 +87,27 @@ gulp.task("css", ["css:libs", "css:app", "css:fonts", "css:images"]);
 
 
 gulp.task("css:libs", function () {
-    return gulp.src([
+    var sassStream = gulp.src([
+            "./bower_components/select2/core.scss"
+        ])
+        .pipe(sass())
+        .pipe(concat("sass.css"));
+
+    var cssStream = gulp.src([
+            "./bower_components/_libs/pnotify/dist/pnotify.css"
+        ])
+        .pipe(concat("less.css"));
+
+    var lessStream = gulp.src([
             "./bower_components/bootstrap/bootstrap.less",
             "./bower_components/kendo/kendo.common-bootstrap.less",
             "./bower_components/kendo/kendo.bootstrap.less",
-            "./bower_components/font-awesome/font-awesome.less",
-            "./bower_components/_libs/pnotify/dist/pnotify.css"
-            //"./bower_components/_libs/bootstrap-toggle/css/bootstrap-toggle.css"
+            "./bower_components/font-awesome/font-awesome.less"
     ])
-        .pipe(less().on("error", function (e) { console.log(e); }))
-        .pipe(cssmin())
+        .pipe(less().on("error", function(e) { console.log(e); }))
+        .pipe(concat("libs.min.css"));
+
+    return merge(sassStream, cssStream, lessStream)
         .pipe(concat("libs.min.css"))
         .pipe(gulp.dest(dest));
 });
@@ -126,7 +140,7 @@ gulp.task("watch", function () {
         gulp.start("css:app");
     });
 
-    watch("./Scripts/*.js", function () {
+    watch("./Scripts/**/*.js", function () {
         gulp.start("js:app");
     });
 });

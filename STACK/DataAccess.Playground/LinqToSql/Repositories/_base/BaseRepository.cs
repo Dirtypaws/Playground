@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Linq.Expressions;
 using DataAccess.Playground.LinqToSql.Mappers;
@@ -49,8 +50,13 @@ namespace DataAccess.Playground.LinqToSql.Repositories
             {
                 var entity = Mapper.ToEntity(data);
 
-                db.GetTable<T>().Attach(entity);
+                var table = db.GetTable<T>();
+                table.Attach(entity);
+                db.Refresh(RefreshMode.KeepChanges, entity);
+
                 db.SubmitChanges();
+
+                RefreshCache(db);
 
                 return Mapper.ToBusinessObject(entity);
             }

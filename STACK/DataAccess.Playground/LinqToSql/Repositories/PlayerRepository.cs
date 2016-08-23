@@ -6,7 +6,7 @@ using DataAccess.Playground.LinqToSql.Mappers;
 using BO = BusinessObjects.Playground;
 namespace DataAccess.Playground.LinqToSql.Repositories
 {
-    public class PlayerRepository : BaseRepository<BO.Player, Player>
+    public class PlayerRepository : BaseRepository<BO.Player, Player>, IPlayerRepository
     {
         public PlayerRepository() : base(new PlayerMapper()) { }
         public override Expression<Func<Player, bool>> cacheFilter { get { return x => x.Number.HasValue; } }

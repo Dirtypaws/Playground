@@ -18,11 +18,11 @@
         placeholder: "Filter by application..."
     });
 
-    $(".grid-item").on("click", function (e) {
-        window.location.href = _rootUrl + $(this).attr("data-url");
+    $(".grid-item").on("click", function () {
+        window.location.href = window._rootUrl + $(this).attr("data-url");
     });
 
-    $("#filters select").on("change", function (e) {
+    $("#filters select").on("change", function () {
         examples.isotope({
             filter: function() {
                 var itm = $(this);

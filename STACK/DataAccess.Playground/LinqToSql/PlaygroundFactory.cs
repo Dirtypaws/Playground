@@ -17,9 +17,8 @@ namespace DataAccess.Playground.LinqToSql
         /// </remarks>        
         static PlaygroundFactory()
         {
-            string cnx = ConfigurationManager.AppSettings.Get("PlaygroundDb");
             string env = ConfigurationManager.AppSettings.Get("Environment");
-            _connectionString = ConfigurationManager.ConnectionStrings[cnx + env].ConnectionString;
+            _connectionString = ConfigurationManager.ConnectionStrings[$"Playground{env}"].ConnectionString;
 
             var context = new PlaygroundContext(_connectionString);
             _mappingSource = context.Mapping.MappingSource;

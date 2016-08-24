@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.75, 9.125" name="Playground">
+  <DataContextMoniker Name="/PlaygroundContext" />
+  <nestedChildShapes>
+    <classShape Id="a2d26531-5e54-4870-94d8-70c6999c7822" absoluteBounds="3.5, 7.125, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/PlaygroundContext/ContactType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="166ef115-a1ef-4989-a036-260d82eff182" absoluteBounds="3.515, 7.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="01d79d93-5c10-4efc-8031-7be81c84226b" absoluteBounds="8.75, 1.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/PlaygroundContext/EventType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ad7e8e9-5e38-4d33-91dd-0cf998494a90" absoluteBounds="8.765, 2.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e944eefc-5159-475f-befb-5a68b9a45b31" absoluteBounds="0.75, 3.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/PlaygroundContext/JerseySize" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b4a4d2c-731e-41bf-b018-560b8e614534" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="031e353e-6bd7-43f1-952c-3c7e19e2591c" absoluteBounds="0.75, 0.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/PlaygroundContext/Position" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a0d95033-9609-4274-8233-4f288563e11e" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fe0076b9-092f-4cc2-95a3-2e6cc8512115" absoluteBounds="6.25, 3.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PlaygroundContext/Email" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9e1651ff-937e-4640-b6b6-41e57d06d8f1" absoluteBounds="6.265, 4.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4b387e7-a305-4334-922e-350fc12ec2ad" absoluteBounds="6.25, 6.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PlaygroundContext/Image" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc1095c6-7fee-4594-a0bc-311d3bbeb104" absoluteBounds="6.265, 6.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="797d2176-d948-4cee-9db2-abdb8aa5c0cd" absoluteBounds="6.25, 0.875, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/PlaygroundContext/Phone" />
+      <nestedChildShapes>
+        <elementListCompartment Id="605743b2-20f4-4c20-8661-2c527d9ebcbd" absoluteBounds="6.265, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5812ac04-979f-4930-bf76-8caaa6af301a" absoluteBounds="11.5, 1.375, 2, 2.5401025390625">
+      <DataClassMoniker Name="/PlaygroundContext/Event" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b620a587-46bb-4d2c-b1fa-adbf33cdebc0" absoluteBounds="11.515, 1.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 7.125); (4.5 : 6.2420068359375); (6 : 6.2420068359375); (6 : 4.66429768880208); (6.25 : 4.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PlaygroundContext/ContactType/ContactType_Email" />
+      <nodes>
+        <classShapeMoniker Id="a2d26531-5e54-4870-94d8-70c6999c7822" />
+        <classShapeMoniker Id="fe0076b9-092f-4cc2-95a3-2e6cc8512115" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.59375 : 7.125); (3.59375 : 1.66429768880208); (4.63541416666667 : 1.66429768880208 : JumpStart); (4.80208083333333 : 1.66429768880208 : JumpEnd); (6.25 : 1.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PlaygroundContext/ContactType/ContactType_Phone" />
+      <nodes>
+        <classShapeMoniker Id="a2d26531-5e54-4870-94d8-70c6999c7822" />
+        <classShapeMoniker Id="797d2176-d948-4cee-9db2-abdb8aa5c0cd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.75 : 2.63544840494792); (11.5 : 2.63544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PlaygroundContext/EventType/EventType_Event" />
+      <nodes>
+        <classShapeMoniker Id="01d79d93-5c10-4efc-8031-7be81c84226b" />
+        <classShapeMoniker Id="5812ac04-979f-4930-bf76-8caaa6af301a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8e6e8e00-c7da-4d9d-90df-1c7fe3a33775" absoluteBounds="3.75, 2.875, 2, 3.1170068359375">
+      <DataClassMoniker Name="/PlaygroundContext/Player" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3bd2595-254a-4394-b62e-1570cbf70fca" absoluteBounds="3.7650000000000006, 3.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.75 : 4.20714884440104); (6.25 : 4.20714884440104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PlaygroundContext/Player/Player_Email" />
+      <nodes>
+        <classShapeMoniker Id="8e6e8e00-c7da-4d9d-90df-1c7fe3a33775" />
+        <classShapeMoniker Id="fe0076b9-092f-4cc2-95a3-2e6cc8512115" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 5.9920068359375); (5.9194667973234 : 6.03708268709666 : JumpStart); (6.0805332026766 : 6.07992414884085 : JumpEnd); (6.25 : 6.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PlaygroundContext/Player/Player_Image" />
+      <nodes>
+        <classShapeMoniker Id="8e6e8e00-c7da-4d9d-90df-1c7fe3a33775" />
+        <classShapeMoniker Id="a4b387e7-a305-4334-922e-350fc12ec2ad" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 2.875); (6.25 : 2.45359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PlaygroundContext/Player/Player_Phone" />
+      <nodes>
+        <classShapeMoniker Id="8e6e8e00-c7da-4d9d-90df-1c7fe3a33775" />
+        <classShapeMoniker Id="797d2176-d948-4cee-9db2-abdb8aa5c0cd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.63544840494792); (3.51041666666667 : 4.63544840494792 : JumpStart); (3.67708333333333 : 4.63544840494792 : JumpEnd); (3.75 : 4.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PlaygroundContext/JerseySize/JerseySize_Player" />
+      <nodes>
+        <classShapeMoniker Id="e944eefc-5159-475f-befb-5a68b9a45b31" />
+        <classShapeMoniker Id="8e6e8e00-c7da-4d9d-90df-1c7fe3a33775" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.20714884440104); (4.7187475 : 1.20714884440104); (4.7187475 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PlaygroundContext/Position/Position_Player" />
+      <nodes>
+        <classShapeMoniker Id="031e353e-6bd7-43f1-952c-3c7e19e2591c" />
+        <classShapeMoniker Id="8e6e8e00-c7da-4d9d-90df-1c7fe3a33775" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

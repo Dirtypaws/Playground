@@ -1,0 +1,44 @@
+﻿@{ Layout = null; }
+@model IEnumerable<Playground.Models.Example>
+
+<h1>Main</h1>
+
+<div id="filters" class="row">
+    <div class="col-md-4">
+        <select id="ddl_groups" multiple style="width: 100%;"></select>
+    </div>
+</div>
+
+<div id="examples">
+    @foreach (var e in Model)
+    {
+        <div class="grid-item @e.Group" data-url="@e.Route">
+            @if (e.IsIconStack)
+            {
+                <span class="fa-stack">
+                    @foreach (var i in e.IconClasses)
+                    {
+                        <i class="fa @i"></i>
+                    }
+                </span>
+            }
+            else
+            {
+                <i class="fa @e.IconClasses.FirstOrDefault() fa-2x"></i>
+            }
+            <h3>@e.Title</h3>
+            <p>@e.Description</p>
+        </div>
+    }
+</div>
+
+<script src="@Url.Content("~/wwwroot/main/index.js")"></script>
+<script>
+    $(document).ready(function() { Main._controls.iso.isotope("layout"); });
+</script>
+
+<style>
+    #filters {
+        margin-bottom: 23px;
+    }
+</style>

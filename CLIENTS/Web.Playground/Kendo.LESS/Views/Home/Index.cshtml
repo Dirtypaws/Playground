@@ -2,22 +2,36 @@
 
 <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-md-7">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                Products
+                People
                 <div class="panel-controls">
-                    <a class="action danger" href="javascript:void(0)">
-                        <i class="fa fa-minus"></i>
+                    <a class="action" href="javascript:Index.ResetPersonFilter();"><i class="fa fa-eraser"></i></a>
+                    <a class="action success" href="javascript:Index.CreatePerson()"><i class="fa fa-plus success"></i></a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="grd_persons"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Phones
+                <div class="panel-controls">
+                    <a class="action" href="javascript:Index.ResetPhoneFilter()">
+                        <i class="fa fa-eraser"></i>
                     </a>
-                    <a class="action success" href="javascript:Index.Create()">
+                    <a class="action success" href="javascript:Index.CreatePhone()">
                         <i class="fa fa-plus success"></i>
                     </a>
                 </div>
             </div>
             <div class="panel-body">
-                <input type="checkbox" checked data-toggle="toggle"/>
-                <div id="grd_data"></div>
+                <div id="grd_phones"></div>
             </div>
         </div>
     </div>

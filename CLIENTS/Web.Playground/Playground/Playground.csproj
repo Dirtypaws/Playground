@@ -43,11 +43,43 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Schema, Version=2.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.Schema.2.0.4\lib\net45\Newtonsoft.Json.Schema.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,30 +121,184 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".bowerrc">
+      <DependentUpon>bower.json</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
+    <Content Include="gulpfile.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\kendo\filterRow.js" />
+    <Content Include="Scripts\kendo\grid.js" />
+    <Content Include="Scripts\kendo\signalR.js" />
+    <Content Include="Scripts\main\index.js" />
     <Content Include="Web.config" />
+    <Content Include="wwwroot\app.min.css" />
+    <Content Include="wwwroot\app.min.js" />
+    <Content Include="wwwroot\bootstrap\index.js" />
+    <Content Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="wwwroot\images\editor.png" />
+    <Content Include="wwwroot\images\imagebrowser.png" />
+    <Content Include="wwwroot\images\indeterminate.gif" />
+    <Content Include="wwwroot\images\loading-image.gif" />
+    <Content Include="wwwroot\images\loading.gif" />
+    <Content Include="wwwroot\images\loading_2x.gif" />
+    <Content Include="wwwroot\images\markers.png" />
+    <Content Include="wwwroot\images\markers_2x.png" />
+    <Content Include="wwwroot\images\slider-h.gif" />
+    <Content Include="wwwroot\images\slider-v.gif" />
+    <Content Include="wwwroot\images\sprite.png" />
+    <Content Include="wwwroot\images\sprite_2x.png" />
+    <Content Include="wwwroot\images\sprite_kpi.png" />
+    <Content Include="wwwroot\images\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\editor.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\imagebrowser.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\indeterminate.gif" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\loading-image.gif" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\loading.gif" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\loading_2x.gif" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\markers.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\markers_2x.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\slider-h.gif" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\slider-v.gif" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\sprite.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\Bootstrap\sprite_2x.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\images\back.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\images\kendoui.svg" />
+    <Content Include="wwwroot\kendo\2014.2.903\images\wp8_icons.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\images\wp8_inverseicons.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\kendo.bootstrap.min.css" />
+    <Content Include="wwwroot\kendo\2014.2.903\kendo.common.min.css" />
+    <Content Include="wwwroot\kendo\2014.2.903\kendo.web.min.js" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\brushed-metal.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots1.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots10.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots11.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots12.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots13.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots2.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots3.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots4.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots5.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots6.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots7.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots8.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\dots9.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\glass-lighter.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\glass.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\highlight.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\hsv-gradient.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\hue.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\leather1.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\leather2.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\noise.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\stripe1.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\stripe2.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\stripe3.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\stripe4.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\stripe5.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\stripe6.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\transparency.png" />
+    <Content Include="wwwroot\kendo\2014.2.903\textures\transtexture.png" />
+    <Content Include="wwwroot\kendo\filterRow.js" />
+    <Content Include="wwwroot\kendo\grid.js" />
+    <Content Include="wwwroot\kendo\signalR.js" />
+    <Content Include="wwwroot\libs.min.css" />
+    <Content Include="wwwroot\libs.min.js" />
+    <Content Include="wwwroot\main\index.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Controllers\BootstrapController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KendoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Example.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="bower.json" />
+    <Content Include="package.json" />
+    <Content Include="settings.config" />
+    <Content Include="sql.config" />
+    <Content Include="bower_components\bootstrap\awesome-bootstrap-checkbox.less" />
+    <Content Include="bower_components\bootstrap\bootstrap.less" />
+    <Content Include="bower_components\bootstrap\modals.less" />
+    <Content Include="bower_components\bootstrap\navs.less" />
+    <Content Include="bower_components\bootstrap\panels.less" />
+    <Content Include="bower_components\bootstrap\scaffolding.less" />
+    <Content Include="bower_components\bootstrap\variables.less" />
+    <Content Include="bower_components\font-awesome\font-awesome.less" />
+    <Content Include="bower_components\font-awesome\variables.less" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="bower_components\kendo\bootstrap-mapper.less" />
+    <Content Include="bower_components\kendo\kendo.bootstrap.less" />
+    <Content Include="bower_components\kendo\kendo.common-bootstrap.less" />
+    <Content Include="bower_components\kendo\type-bootstrap.less" />
+    <Content Include="Content\app.less" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Main.cshtml" />
+    <Content Include="Views\Shared\Components\Header.cshtml" />
+    <Content Include="Views\Bootstrap\Index.cshtml" />
+    <Content Include="Scripts\bootstrap\index.js" />
+    <Content Include="bower_components\bootstrap\forms.less" />
+    <Content Include="bower_components\bootstrap\navbar.less" />
+    <Content Include="Views\Kendo\Grid.cshtml" />
+    <Content Include="Content\isotope.less" />
+    <Content Include="..\Palette.less">
+      <Link>bower_components\Palette.less</Link>
+    </Content>
+    <Content Include="bower_components\select2\core.scss" />
+    <Content Include="..\Palette.scss">
+      <Link>bower_components\Palette.scss</Link>
+    </Content>
+    <Content Include="bower_components\select2\default\layout.scss" />
+    <Content Include="bower_components\select2\default\_multiple.scss" />
+    <Content Include="bower_components\select2\default\_single.scss" />
+    <None Include="Views\Kendo\FilterRow.cshtml" />
+    <None Include="Views\Kendo\SignalR.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="wwwroot\fonts\fontawesome-webfont.eot" />
+    <Content Include="wwwroot\fonts\fontawesome-webfont.ttf" />
+    <Content Include="wwwroot\fonts\fontawesome-webfont.woff" />
+    <Content Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <Content Include="wwwroot\fonts\FontAwesome.otf" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="wwwroot\kendo\2014.2.903\images\kendoui.ttf" />
+    <Content Include="wwwroot\kendo\2014.2.903\images\kendoui.woff" />
+    <Content Include="wwwroot\kendo\2014.2.903\kendo.web.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\STACK\BusinessObjects\BusinessObjects.csproj">
+      <Project>{2807a27b-ab02-430a-9b5b-6c9166725dc0}</Project>
+      <Name>BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\STACK\DataAccess.Playground\DataAccess.Playground.csproj">
+      <Project>{6AC00252-D60E-46B5-99AA-1B20EA201E6A}</Project>
+      <Name>DataAccess.Playground</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\STACK\Framework\Framework.csproj">
+      <Project>{ef19807d-7cf6-4111-821d-1de3d34a93c6}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

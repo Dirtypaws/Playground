@@ -12,12 +12,28 @@ namespace DataAccess.AdventureWorks.EF.Repositories
     {
         public BO.Person Create(BO.Person data)
         {
-            throw new NotImplementedException();
+            using (var db = new Data())
+            {
+                var be = new BusinessEntity { ModifiedDate = DateTime.Now, rowguid = Guid.NewGuid() };
+                db.BusinessEntities.Add(be);
+                db.SaveChanges();
+
+                data.ID = be.BusinessEntityID;
+
+                var entity = PersonMapper.ToEntity(data);
+                db.People.Add(entity);
+                db.SaveChanges();
+
+                ClearCache();
+                Get();
+
+                return PersonMapper.ToBusinessObject(entity);
+            }
         }
 
-        public IEnumerable<BO.Person> Get(Expression<Func<BO.Person, bool>> filter = null, Func<IQueryable<BO.Person>, IOrderedQueryable<BO.Person>> orderBy = null, bool useCache = true, bool includeChildEntities = false)
+        public IEnumerable<BO.Person> Get(Expression<Func<BO.Person, bool>> filter = null, Func<IQueryable<BO.Person>, IOrderedQueryable<BO.Person>> orderBy = null, bool useCache = true)
         {
-            var data = Cache(PersonMapper.ToBusinessObjects);
+            var data = Cache(PersonMapper.ToBusinessObjects, null, useCache);
 
             if (filter != null) data = data.Where(filter);
             orderBy?.Invoke(data);

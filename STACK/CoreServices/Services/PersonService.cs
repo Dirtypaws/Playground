@@ -12,22 +12,29 @@ namespace CoreServices.Services
     public class PersonService : IPersonService
     {
         readonly IPersonRepository _personRepo;
+        readonly IPhoneRepository _phoneRepo;
 
-        public PersonService() : this(new PersonRepository()) {}
+        public PersonService() : this(new PersonRepository(), new PhoneRepository()) {}
 
-        public PersonService(IPersonRepository personRepo)
+        public PersonService(IPersonRepository personRepo, IPhoneRepository phoneRepo)
         {
             _personRepo = personRepo;
+            _phoneRepo = phoneRepo;
         }
 
         public Person Create(Person data)
         {
-            throw new NotImplementedException();
+            return _personRepo.Create(data);
         }
 
         public IEnumerable<Person> Get(Expression<Func<Person, bool>> filter = null, Func<IQueryable<Person>, IOrderedQueryable<Person>> orderBy = null, bool useCache = true, bool includeChildEntities = false)
         {
-            return _personRepo.Get();
+            var data = _personRepo.Get().ToArray();
+            var phones = _phoneRepo.Get().ToArray();
+            foreach (var person in data)
+                person.Phones = phones.Where(x => x.PersonID == person.ID).ToList();
+
+            return data;
         }
 
         public Person Update(Person data)

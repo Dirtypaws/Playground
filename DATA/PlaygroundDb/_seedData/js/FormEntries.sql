@@ -1,6 +1,6 @@
 ﻿SET IDENTITY_INSERT [js].[FormEntry] ON
 
-MERGE INTO  [js].[Form] AS t
+MERGE INTO  [js].[FormEntry] AS t
 USING( VALUES
 (1, 1, NULL, NULL, NULL, NULL, NULL, NULL, N'{"name":"Boris Momtchev","age":41,"favorite_color":"#ffa500","gender":"male"}', N'2016-08-24 16:29:13', N'anonymous', N'anonymous', N'2016-08-24 16:29:13'),
 (2, 1, NULL, NULL, NULL, NULL, NULL, NULL, N'{"name":"Matt Krizanac","age":32,"favorite_color":"#e0bcd7","gender":"male"}', N'2016-08-24 16:29:43', N'anonymous', N'anonymous', N'2016-08-24 16:29:43'),

@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,6 +46,8 @@
     <Compile Include="Person\Person.cs" />
     <Compile Include="Person\Phone.cs" />
     <Compile Include="Person\SalesPerson.cs" />
+    <Compile Include="Playground\Form.cs" />
+    <Compile Include="Playground\FormEntry.cs" />
     <Compile Include="Playground\Phone.cs" />
     <Compile Include="Playground\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

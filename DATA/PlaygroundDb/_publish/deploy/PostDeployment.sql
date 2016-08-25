@@ -16,6 +16,8 @@ Post-Deployment Script Template
 :r ../../_seedData/dbo/EventTypes.sql
 
 :r ../../_seedData/roster/Players.sql
+:r ../../_seedData/js/Forms.sql
+:r ../../_seedData/js/FormEntries.sql
 --:r ../../_seedData/roster/Emails.sql
 --:r ../../_seedData/roster/Phones.sql
 

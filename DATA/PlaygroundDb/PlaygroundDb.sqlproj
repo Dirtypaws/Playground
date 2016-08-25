@@ -71,10 +71,13 @@
     <Folder Include="Security\" />
     <Folder Include="_seedData\roster" />
     <Folder Include="_seedData\dbo" />
+    <Folder Include="js" />
+    <Folder Include="_seedData\js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="_publish\LOCAL.publish.xml" />
     <None Include="_seedData\roster\Players.sql" />
+    <None Include="_seedData\js\FormEntries.sql" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)' == 'Debug'">
     <PreDeploy Include="_publish\deploy\LOCAL.PreDeployment.sql" />
@@ -114,5 +117,9 @@
     <None Include="_seedData\dbo\EventTypes.sql" />
     <None Include="_seedData\dbo\JerseySizes.sql" />
     <None Include="_seedData\dbo\Positions.sql" />
+    <Build Include="Security\js.sql" />
+    <Build Include="js\Form.sql" />
+    <Build Include="js\FormEntry.sql" />
+    <None Include="_seedData\js\Forms.sql" />
   </ItemGroup>
 </Project>

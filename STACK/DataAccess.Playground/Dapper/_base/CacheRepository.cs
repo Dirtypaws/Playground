@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using Dapper;
 using Framework.Services;
-using TableAttribute = System.ComponentModel.DataAnnotations.Schema.TableAttribute;
 
 namespace DataAccess.Playground.Dapper
 {
@@ -12,10 +15,10 @@ namespace DataAccess.Playground.Dapper
     {
         public abstract string cacheFilter { get; }
 
+        private readonly string key = nameof(T);
+        
         protected IQueryable<T> Cache(bool useCache = true)
         {
-            string key = typeof(T).Name;
-
             var data = MemoryCacheService.Get<IQueryable<T>>(key);
             if (!useCache) data = null;
 
@@ -23,19 +26,23 @@ namespace DataAccess.Playground.Dapper
 
             using (var db = OpenConnection())
             {
-                
-                var attr = typeof (T).GetCustomAttributes(typeof (TableAttribute), false).FirstOrDefault();
-                
-                string tableName = (attr as TableAttribute)?.Name;
+                var table = key;
+                var tableAttribute =
+                    typeof (T).GetCustomAttributes(typeof (TableAttribute), false).FirstOrDefault() as TableAttribute;
+                if (tableAttribute != null)
+                    table = tableAttribute.Name;
 
-                // If they didn't supply the table attribute - we'll use the class name and hope for the best.
-                if (string.IsNullOrEmpty(tableName)) tableName = key;
-                string filter = cacheFilter;
-                if (string.IsNullOrEmpty(filter)) filter = "1=1";
+                var filter = "1=1";
+                if (!string.IsNullOrEmpty(cacheFilter))
+                    filter = cacheFilter;
 
+                var map = new CustomPropertyTypeMap(typeof(T),
+                    (type, columnName) => type.GetProperties().FirstOrDefault(prop => GetDescriptionFromAttribute(prop) == columnName));
+                SqlMapper.SetTypeMap(typeof(T), map);
 
-                data = db.Query<T>($"SELECT * FROM {tableName} WHERE {filter}").AsQueryable();
+                data = db.Query<T>($"SELECT * FROM {table} WHERE {filter}").AsQueryable();
 
+                SqlMapper.SetTypeMap(typeof(T), null);
             }
 
             MemoryCacheService.Add(data, key, DateTimeOffset.Now.AddHours(12));
@@ -45,20 +52,32 @@ namespace DataAccess.Playground.Dapper
 
         protected void RefreshCache(IDbConnection db)
         {
-            string key = typeof(T).Name;
             MemoryCacheService.Clear(key);
 
-            var attr = typeof(T).GetCustomAttributes(typeof(TableAttribute), false).FirstOrDefault();
-            string tableName = (attr as TableAttribute)?.Name;
+            var schema = "[dbo]";
+            var table = key;
+            var tableAttribute =
+                typeof(T).GetCustomAttributes(typeof(TableAttribute), false).FirstOrDefault() as TableAttribute;
+            if (tableAttribute != null)
+            {
+                table = tableAttribute.Name;
+                schema = tableAttribute.Schema;
+            }
 
-            // If they didn't supply the table attribute - we'll use the class name and hope for the best.
-            if (string.IsNullOrEmpty(tableName)) tableName = key;
-            string filter = cacheFilter;
-            if (string.IsNullOrEmpty(filter)) filter = "1=1";
+            var filter = "1=1";
+            if (!string.IsNullOrEmpty(cacheFilter))
+                filter = cacheFilter;
 
-            var data = db.Query<T>($"SELECT * FROM {tableName} WHERE {filter}").AsQueryable();
+            var data = db.Query<T>($"SELECT * FROM {schema}.{table} WHERE {filter}").AsQueryable();
 
             MemoryCacheService.Add(data, key, DateTimeOffset.Now.AddHours(12));
+        }
+
+        static string GetDescriptionFromAttribute(MemberInfo member)
+        {
+            if (member == null) return null;
+            var attrib = (ColumnAttribute)Attribute.GetCustomAttribute(member, typeof(ColumnAttribute), true);
+            return attrib != null ? attrib.Name : member.Name;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessObjects.Playground
@@ -7,6 +8,7 @@ namespace BusinessObjects.Playground
     public class Form
     {
         public int Id { get; set; }
+        [Column("eFormTypeId")]
         public int FormTypeId { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }

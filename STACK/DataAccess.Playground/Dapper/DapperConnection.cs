@@ -6,24 +6,9 @@ namespace DataAccess.Playground.Dapper
 {
     public abstract class DapperConnection
     {
-        private static SqlConnection cnx;
-        private static SqlConnection sql
-        {
-            get
-            {
-                if (cnx == null)
-                {
-                    var env = ConfigurationManager.AppSettings.Get("Environment");
-                    cnx = new SqlConnection(ConfigurationManager.ConnectionStrings[$"Playground{env}"].ConnectionString);
-                }
-
-                return cnx;
-
-            }
-        }
-
         protected static IDbConnection OpenConnection()
         {
+            var sql = new SqlConnection(ConfigurationManager.ConnectionStrings[$"Playground{ConfigurationManager.AppSettings.Get("Environment")}"].ConnectionString);
             sql.Open();
             return sql;
         }

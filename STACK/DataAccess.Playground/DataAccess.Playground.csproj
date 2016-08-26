@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dapper\Repositories\FormEntryRepository.cs" />
     <Compile Include="Dapper\Repositories\FormRepository.cs" />
     <Compile Include="Dapper\_base\BaseRepository.cs" />
     <Compile Include="Dapper\_base\CacheRepository.cs" />
@@ -60,6 +61,7 @@
       <DependentUpon>Playground.dbml</DependentUpon>
     </Compile>
     <Compile Include="LinqToSql\PlaygroundFactory.cs" />
+    <Compile Include="LinqToSql\Repositories\FormEntryRepository.cs" />
     <Compile Include="LinqToSql\Repositories\PlayerRepository.cs" />
     <Compile Include="LinqToSql\Repositories\_base\CacheRepository.cs" />
     <Compile Include="LinqToSql\Repositories\_base\BaseRepository.cs" />

@@ -57,6 +57,12 @@ namespace DataAccess.Playground.LinqToSql
     partial void InsertPlayer(Player instance);
     partial void UpdatePlayer(Player instance);
     partial void DeletePlayer(Player instance);
+    partial void InsertForm(Form instance);
+    partial void UpdateForm(Form instance);
+    partial void DeleteForm(Form instance);
+    partial void InsertFormEntry(FormEntry instance);
+    partial void UpdateFormEntry(FormEntry instance);
+    partial void DeleteFormEntry(FormEntry instance);
     #endregion
 		
 		public PlaygroundContext() : 
@@ -158,6 +164,22 @@ namespace DataAccess.Playground.LinqToSql
 			get
 			{
 				return this.GetTable<Player>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Form> Forms
+		{
+			get
+			{
+				return this.GetTable<Form>();
+			}
+		}
+		
+		public System.Data.Linq.Table<FormEntry> FormEntries
+		{
+			get
+			{
+				return this.GetTable<FormEntry>();
 			}
 		}
 	}
@@ -2325,6 +2347,682 @@ namespace DataAccess.Playground.LinqToSql
 		{
 			this.SendPropertyChanging();
 			entity.Player = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="js.Form")]
+	public partial class Form : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _eFormTypeId;
+		
+		private string _Name;
+		
+		private string _Code;
+		
+		private string _Description;
+		
+		private string _Schema;
+		
+		private bool _IsActive;
+		
+		private string _Version;
+		
+		private System.DateTime _CreatedOn;
+		
+		private string _CreatedBy;
+		
+		private string _User;
+		
+		private System.Nullable<System.DateTime> _TS;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OneFormTypeIdChanging(int value);
+    partial void OneFormTypeIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnCodeChanging(string value);
+    partial void OnCodeChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnSchemaChanging(string value);
+    partial void OnSchemaChanged();
+    partial void OnIsActiveChanging(bool value);
+    partial void OnIsActiveChanged();
+    partial void OnVersionChanging(string value);
+    partial void OnVersionChanged();
+    partial void OnCreatedOnChanging(System.DateTime value);
+    partial void OnCreatedOnChanged();
+    partial void OnCreatedByChanging(string value);
+    partial void OnCreatedByChanged();
+    partial void OnUserChanging(string value);
+    partial void OnUserChanged();
+    partial void OnTSChanging(System.Nullable<System.DateTime> value);
+    partial void OnTSChanged();
+    #endregion
+		
+		public Form()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_eFormTypeId", DbType="Int NOT NULL")]
+		public int eFormTypeId
+		{
+			get
+			{
+				return this._eFormTypeId;
+			}
+			set
+			{
+				if ((this._eFormTypeId != value))
+				{
+					this.OneFormTypeIdChanging(value);
+					this.SendPropertyChanging();
+					this._eFormTypeId = value;
+					this.SendPropertyChanged("eFormTypeId");
+					this.OneFormTypeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Code", DbType="NVarChar(256)")]
+		public string Code
+		{
+			get
+			{
+				return this._Code;
+			}
+			set
+			{
+				if ((this._Code != value))
+				{
+					this.OnCodeChanging(value);
+					this.SendPropertyChanging();
+					this._Code = value;
+					this.SendPropertyChanged("Code");
+					this.OnCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(1024)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Schema]", Storage="_Schema", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Schema
+		{
+			get
+			{
+				return this._Schema;
+			}
+			set
+			{
+				if ((this._Schema != value))
+				{
+					this.OnSchemaChanging(value);
+					this.SendPropertyChanging();
+					this._Schema = value;
+					this.SendPropertyChanged("Schema");
+					this.OnSchemaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit NOT NULL")]
+		public bool IsActive
+		{
+			get
+			{
+				return this._IsActive;
+			}
+			set
+			{
+				if ((this._IsActive != value))
+				{
+					this.OnIsActiveChanging(value);
+					this.SendPropertyChanging();
+					this._IsActive = value;
+					this.SendPropertyChanged("IsActive");
+					this.OnIsActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Version
+		{
+			get
+			{
+				return this._Version;
+			}
+			set
+			{
+				if ((this._Version != value))
+				{
+					this.OnVersionChanging(value);
+					this.SendPropertyChanging();
+					this._Version = value;
+					this.SendPropertyChanged("Version");
+					this.OnVersionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime2 NOT NULL")]
+		public System.DateTime CreatedOn
+		{
+			get
+			{
+				return this._CreatedOn;
+			}
+			set
+			{
+				if ((this._CreatedOn != value))
+				{
+					this.OnCreatedOnChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedOn = value;
+					this.SendPropertyChanged("CreatedOn");
+					this.OnCreatedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
+		public string CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[User]", Storage="_User", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
+		public string User
+		{
+			get
+			{
+				return this._User;
+			}
+			set
+			{
+				if ((this._User != value))
+				{
+					this.OnUserChanging(value);
+					this.SendPropertyChanging();
+					this._User = value;
+					this.SendPropertyChanged("User");
+					this.OnUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TS", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> TS
+		{
+			get
+			{
+				return this._TS;
+			}
+			set
+			{
+				if ((this._TS != value))
+				{
+					this.OnTSChanging(value);
+					this.SendPropertyChanging();
+					this._TS = value;
+					this.SendPropertyChanged("TS");
+					this.OnTSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="js.FormEntry")]
+	public partial class FormEntry : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _FormId;
+		
+		private System.Nullable<int> _WorkspaceId;
+		
+		private System.Nullable<int> _OverlayId;
+		
+		private System.Nullable<int> _LayerId;
+		
+		private System.Nullable<int> _DrawingId;
+		
+		private string _LayerName;
+		
+		private string _FeatureName;
+		
+		private string _Content;
+		
+		private System.DateTime _CreatedOn;
+		
+		private string _CreatedBy;
+		
+		private string _User;
+		
+		private System.Nullable<System.DateTime> _TS;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnFormIdChanging(int value);
+    partial void OnFormIdChanged();
+    partial void OnWorkspaceIdChanging(System.Nullable<int> value);
+    partial void OnWorkspaceIdChanged();
+    partial void OnOverlayIdChanging(System.Nullable<int> value);
+    partial void OnOverlayIdChanged();
+    partial void OnLayerIdChanging(System.Nullable<int> value);
+    partial void OnLayerIdChanged();
+    partial void OnDrawingIdChanging(System.Nullable<int> value);
+    partial void OnDrawingIdChanged();
+    partial void OnLayerNameChanging(string value);
+    partial void OnLayerNameChanged();
+    partial void OnFeatureNameChanging(string value);
+    partial void OnFeatureNameChanged();
+    partial void OnContentChanging(string value);
+    partial void OnContentChanged();
+    partial void OnCreatedOnChanging(System.DateTime value);
+    partial void OnCreatedOnChanged();
+    partial void OnCreatedByChanging(string value);
+    partial void OnCreatedByChanged();
+    partial void OnUserChanging(string value);
+    partial void OnUserChanged();
+    partial void OnTSChanging(System.Nullable<System.DateTime> value);
+    partial void OnTSChanged();
+    #endregion
+		
+		public FormEntry()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormId", DbType="Int NOT NULL")]
+		public int FormId
+		{
+			get
+			{
+				return this._FormId;
+			}
+			set
+			{
+				if ((this._FormId != value))
+				{
+					this.OnFormIdChanging(value);
+					this.SendPropertyChanging();
+					this._FormId = value;
+					this.SendPropertyChanged("FormId");
+					this.OnFormIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkspaceId", DbType="Int")]
+		public System.Nullable<int> WorkspaceId
+		{
+			get
+			{
+				return this._WorkspaceId;
+			}
+			set
+			{
+				if ((this._WorkspaceId != value))
+				{
+					this.OnWorkspaceIdChanging(value);
+					this.SendPropertyChanging();
+					this._WorkspaceId = value;
+					this.SendPropertyChanged("WorkspaceId");
+					this.OnWorkspaceIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OverlayId", DbType="Int")]
+		public System.Nullable<int> OverlayId
+		{
+			get
+			{
+				return this._OverlayId;
+			}
+			set
+			{
+				if ((this._OverlayId != value))
+				{
+					this.OnOverlayIdChanging(value);
+					this.SendPropertyChanging();
+					this._OverlayId = value;
+					this.SendPropertyChanged("OverlayId");
+					this.OnOverlayIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LayerId", DbType="Int")]
+		public System.Nullable<int> LayerId
+		{
+			get
+			{
+				return this._LayerId;
+			}
+			set
+			{
+				if ((this._LayerId != value))
+				{
+					this.OnLayerIdChanging(value);
+					this.SendPropertyChanging();
+					this._LayerId = value;
+					this.SendPropertyChanged("LayerId");
+					this.OnLayerIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DrawingId", DbType="Int")]
+		public System.Nullable<int> DrawingId
+		{
+			get
+			{
+				return this._DrawingId;
+			}
+			set
+			{
+				if ((this._DrawingId != value))
+				{
+					this.OnDrawingIdChanging(value);
+					this.SendPropertyChanging();
+					this._DrawingId = value;
+					this.SendPropertyChanged("DrawingId");
+					this.OnDrawingIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LayerName", DbType="NVarChar(512)")]
+		public string LayerName
+		{
+			get
+			{
+				return this._LayerName;
+			}
+			set
+			{
+				if ((this._LayerName != value))
+				{
+					this.OnLayerNameChanging(value);
+					this.SendPropertyChanging();
+					this._LayerName = value;
+					this.SendPropertyChanged("LayerName");
+					this.OnLayerNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FeatureName", DbType="NVarChar(512)")]
+		public string FeatureName
+		{
+			get
+			{
+				return this._FeatureName;
+			}
+			set
+			{
+				if ((this._FeatureName != value))
+				{
+					this.OnFeatureNameChanging(value);
+					this.SendPropertyChanging();
+					this._FeatureName = value;
+					this.SendPropertyChanged("FeatureName");
+					this.OnFeatureNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Content
+		{
+			get
+			{
+				return this._Content;
+			}
+			set
+			{
+				if ((this._Content != value))
+				{
+					this.OnContentChanging(value);
+					this.SendPropertyChanging();
+					this._Content = value;
+					this.SendPropertyChanged("Content");
+					this.OnContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime2 NOT NULL")]
+		public System.DateTime CreatedOn
+		{
+			get
+			{
+				return this._CreatedOn;
+			}
+			set
+			{
+				if ((this._CreatedOn != value))
+				{
+					this.OnCreatedOnChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedOn = value;
+					this.SendPropertyChanged("CreatedOn");
+					this.OnCreatedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
+		public string CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[User]", Storage="_User", DbType="NVarChar(128) NOT NULL", CanBeNull=false)]
+		public string User
+		{
+			get
+			{
+				return this._User;
+			}
+			set
+			{
+				if ((this._User != value))
+				{
+					this.OnUserChanging(value);
+					this.SendPropertyChanging();
+					this._User = value;
+					this.SendPropertyChanged("User");
+					this.OnUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TS", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> TS
+		{
+			get
+			{
+				return this._TS;
+			}
+			set
+			{
+				if ((this._TS != value))
+				{
+					this.OnTSChanging(value);
+					this.SendPropertyChanging();
+					this._TS = value;
+					this.SendPropertyChanged("TS");
+					this.OnTSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

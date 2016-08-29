@@ -53,6 +53,8 @@
     <Compile Include="Dapper\_base\CacheRepository.cs" />
     <Compile Include="Dapper\_base\CRUDRepository.cs" />
     <Compile Include="Dapper\DapperConnection.cs" />
+    <Compile Include="LinqToSql\Mappers\FormEntryMapper.cs" />
+    <Compile Include="LinqToSql\Mappers\FormMapper.cs" />
     <Compile Include="LinqToSql\Mappers\PlayerMapper.cs" />
     <Compile Include="LinqToSql\Mappers\_base\IMapper.cs" />
     <Compile Include="LinqToSql\Playground.designer.cs">
@@ -62,9 +64,11 @@
     </Compile>
     <Compile Include="LinqToSql\PlaygroundFactory.cs" />
     <Compile Include="LinqToSql\Repositories\FormEntryRepository.cs" />
+    <Compile Include="LinqToSql\Repositories\FormRepository.cs" />
     <Compile Include="LinqToSql\Repositories\PlayerRepository.cs" />
     <Compile Include="LinqToSql\Repositories\_base\CacheRepository.cs" />
     <Compile Include="LinqToSql\Repositories\_base\BaseRepository.cs" />
+    <Compile Include="LinqToSql\Repositories\_base\CRUDRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

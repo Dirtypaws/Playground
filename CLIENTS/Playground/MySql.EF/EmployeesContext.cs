@@ -15,7 +15,6 @@ namespace MySql.EF
         
         public DbSet<Actor> Actors { get; set; }
 
-
         /// <summary>
         /// Factory class for EmployeesContext
         /// </summary>

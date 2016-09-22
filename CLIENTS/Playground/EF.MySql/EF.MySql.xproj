@@ -7,8 +7,8 @@
 
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>998d19ae-8909-4218-96bb-5f3441da0b43</ProjectGuid>
-    <RootNamespace>MySql.EF</RootNamespace>
+    <ProjectGuid>7e1b0d46-3346-4f97-9ad7-8d800a06b742</ProjectGuid>
+    <RootNamespace>EF.MySql</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

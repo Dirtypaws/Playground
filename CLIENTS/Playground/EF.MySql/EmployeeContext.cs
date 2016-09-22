@@ -1,18 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
-using MySqlX.XDevAPI.Relational;
 using MySQL.Data.EntityFrameworkCore.Extensions;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MySql.EF
 {
     public class EmployeesContext : DbContext
     {
         public EmployeesContext(DbContextOptions<EmployeesContext> options)
-            : base(options) {}
+            : base(options) { }
 
-        
+
         public DbSet<Actor> Actors { get; set; }
 
         /// <summary>
@@ -38,7 +36,7 @@ namespace MySql.EF
         /// </summary>
         public class Actor
         {
-            public Actor() {}
+            public Actor() { }
 
             [Key]
             public int actor_id { get; set; }

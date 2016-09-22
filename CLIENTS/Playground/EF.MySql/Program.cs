@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using MySql.EF;
 
-namespace MySql.EF
+namespace EF.MySql
 {
     public class Program
     {
@@ -25,7 +24,7 @@ namespace MySql.EF
                 Console.WriteLine($"Retrieved actor with Id: {actor.actor_id}");
             }
 
-            
+            Console.ReadKey();
         }
     }
 }

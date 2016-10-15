@@ -32,6 +32,7 @@ public class PlayerRepository : CRUDRepository<Player>, IPlayerRepository
     }
 }
 ```
+
 * I created on the DapperConnection<T> class default resolutions for the table name and schema.
 * ```C#
 public abstract class DapperConnection<T> : DapperConnection
@@ -47,4 +48,5 @@ public abstract class DapperConnection<T> : DapperConnection
     }
 }
 ```
+
 * The LookupRepository demonstrates the flexibility of this approach.

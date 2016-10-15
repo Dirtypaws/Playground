@@ -14,7 +14,7 @@ The Dapper.Core.Konsole project is a demonstration of dotnetcore using Dapper wi
 * I found this sweet SO answer that solved the predicate issue we'd been having in Dapper: http://stackoverflow.com/a/29356694/429593
 * The mapping issues we had I solved with Dapper.FastCRUD.
 * Now if you want a custom mapper - you'd write it in the constructor for the repository:
-* ```C#
+```C#
 public class PlayerRepository : CRUDRepository<Player>, IPlayerRepository
 {
 	// I technically don't have to do this because the class name and the table match up - but - if they didn't...
@@ -34,7 +34,7 @@ public class PlayerRepository : CRUDRepository<Player>, IPlayerRepository
 ```
 
 * I created on the DapperConnection<T> class default resolutions for the table name and schema.
-* ```C#
+```C#
 public abstract class DapperConnection<T> : DapperConnection
 {
     public virtual string TableName => typeof(T).Name;

@@ -1,0 +1,7 @@
+﻿{
+    "ConnectionStrings": 
+        {
+            "Playground": "Data Source=(localDb)\\ProjectsV13;Initial Catalog=Playground;Integrated Security=SSPI"
+        }
+    
+}

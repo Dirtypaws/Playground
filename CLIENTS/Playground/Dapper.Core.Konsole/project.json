@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0-*",
+    "buildOptions": {
+        "emitEntryPoint": true,
+        "copyToOutput": { "includeFiles": [ "settings.json" ] }
+    },
+
+    "dependencies": {
+        "CoreServices": "1.0.0-*",
+        "DataAccess": "1.0.0-*",
+        "DataAccess.Playground": "1.0.0-*",
+        "Framework": "1.0.0-*",
+        "Microsoft.Extensions.Configuration.Json": "1.0.0",
+        "Microsoft.NETCore.App": {
+            "type": "platform",
+            "version": "1.0.1"
+        },
+        "Newtonsoft.Json": "9.0.1"
+    },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}

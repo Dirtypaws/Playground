@@ -6,6 +6,8 @@ The Playground project is used mainly for unit tests and console applications. I
 
 ### Dapper.Core.Konsole
 
+***Note: This project has references to the stack in Playground/STACK/_Core*** - I'll clean this up later
+
 The Dapper.Core.Konsole project is a demonstration of dotnetcore using Dapper with the CRUD abstraction pattern. Some interesting patterns to display:
 * The base lookup object was moved to the Framework project. This was to avoid a circular dependancy between CoreServices (the cache) and Framework.
 * There's a new Cache pattern specifically for Lookups. It uses ConcurrentDictionary - so it should be threadsafe. *TODO: Write a test to ensure thread safety*

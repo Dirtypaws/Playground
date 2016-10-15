@@ -4,7 +4,7 @@ namespace Framework
 {
     public class BaseAudit
     {
-        public string User { get; set; }
+        public string Usr { get; set; }
         public DateTime? TS { get; set; }
     }
 }

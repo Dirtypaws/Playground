@@ -11,16 +11,15 @@ namespace DataAccess.Playground.Dapper.Repositories
 {
     public class LookupRepository : DapperConnection, ILookupRepository
     {
-        void ConfigureLookup<T>() where T : Lookup
+        static void ConfigureLookup<T>() where T : Lookup
         {
-            OrmConfiguration.GetDefaultEntityMapping<T>()
+            OrmConfiguration.GetDefaultEntityMapping<Lookup>()
                 .SetSchemaName("dbo")
                 .SetTableName(typeof(T).Name)
                 .SetProperty(e => e.ID,
                     p => p.SetDatabaseColumnName("Id")
                         .SetDatabaseGenerated(DatabaseGeneratedOption.Identity)
                         .SetPrimaryKey());
-
         }
 
         public T Create<T>(T data) where T : Lookup

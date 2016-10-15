@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.CodeAnalysis;
 using Dapper.FastCrud;
 using Framework.Helpers;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +12,7 @@ namespace DataAccess.Playground.Dapper
         public virtual string TableName => typeof(T).Name;
         public virtual string SchemaName => "dbo";
 
+        [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         protected DapperConnection()
         {
             OrmConfiguration.GetDefaultEntityMapping<T>()

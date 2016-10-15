@@ -13,8 +13,8 @@ The Dapper.Core.Konsole project is a demonstration of dotnetcore using Dapper wi
 * The new dotnetcore pattern for configs almost requires the ConfigHelper to be in the framework if you want seperate assemblies to reference the applications settings file.
 * I found this sweet SO answer that solved the predicate issue we'd been having in Dapper: http://stackoverflow.com/a/29356694/429593
 * The mapping issues we had I solved with Dapper.FastCRUD.
-** Now if you want a custom mapper - you'd write it in the constructor for the repository:
-** ```C#
+* Now if you want a custom mapper - you'd write it in the constructor for the repository:
+* ```C#
 public class PlayerRepository : CRUDRepository<Player>, IPlayerRepository
 {
 	// I technically don't have to do this because the class name and the table match up - but - if they didn't...

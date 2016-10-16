@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Sockets;
+using System.Reflection;
 using Dapper;
 using Dapper.FastCrud;
+using DataAccess.Playground.Dapper.Mappers;
 
 // ReSharper disable once CheckNamespace
 namespace DataAccess.Playground.Dapper.Repositories
@@ -17,8 +20,6 @@ namespace DataAccess.Playground.Dapper.Repositories
 
         public virtual T Create(T data)
         {
-
-
             using (var db = OpenConnection())
             {
                 db.Insert(data);
@@ -31,7 +32,9 @@ namespace DataAccess.Playground.Dapper.Repositories
         {
             using (var db = OpenConnection())
             {
-                //SqlMapper.SetTypeMap(_type, Mapper);
+                SqlMapper.SetTypeMap(
+                    _type,
+                    new ColumnAttributeTypeMapper<T>());
 
                 var data = db.Query<T>($"SELECT * FROM {SchemaName}.{TableName}", filter).AsQueryable();
 
@@ -39,7 +42,7 @@ namespace DataAccess.Playground.Dapper.Repositories
                     data = data.Where(filter);
                 orderBy?.Invoke(data);
 
-                //SqlMapper.SetTypeMap(_type, null);
+                SqlMapper.SetTypeMap(_type, null);
 
                 return data.ToList();
             }

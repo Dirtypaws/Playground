@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Playground.Lookups;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using BusinessObjects.Playground.Lookups;
 using Framework;
 
 namespace BusinessObjects.Playground
@@ -10,6 +11,7 @@ namespace BusinessObjects.Playground
 
         public int? JerseySizeID { get; set; }
         // public JerseySize JerseySize { get; set; }
+        [Column("JerseyPaid")]
         public bool IsJerseyPaid { get; set; }
 
         public char? Handedness { get; set; }

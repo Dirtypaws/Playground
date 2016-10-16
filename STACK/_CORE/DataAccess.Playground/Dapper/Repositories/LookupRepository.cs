@@ -5,12 +5,20 @@ using System.Linq;
 using System.Linq.Expressions;
 using Dapper;
 using Dapper.FastCrud;
+using DataAccess.Playground.Dapper.Mappers;
 using Framework;
 
 namespace DataAccess.Playground.Dapper.Repositories
 {
     public class LookupRepository : DapperConnection, ILookupRepository
     {
+        static LookupRepository()
+        {
+            SqlMapper.SetTypeMap(
+                typeof(Lookup),
+                new ColumnAttributeTypeMapper<Lookup>());
+        }
+
         static void ConfigureLookup<T>() where T : Lookup
         {
             OrmConfiguration.GetDefaultEntityMapping<Lookup>()
@@ -36,7 +44,10 @@ namespace DataAccess.Playground.Dapper.Repositories
         public IEnumerable<T> Get<T>(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, bool useCache = true) 
             where T : Lookup
         {
-            ConfigureLookup<T>();
+            SqlMapper.SetTypeMap(
+                typeof(T),
+                new ColumnAttributeTypeMapper<T>());
+
 
             using (var db = OpenConnection())
             {

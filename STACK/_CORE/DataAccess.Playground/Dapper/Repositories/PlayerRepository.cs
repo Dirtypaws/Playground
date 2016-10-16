@@ -8,14 +8,5 @@ namespace DataAccess.Playground.Dapper.Repositories
     {
         public override string TableName => "Player";
         public override string SchemaName => "roster";
-
-        static PlayerRepository()
-        {
-            OrmConfiguration.GetDefaultEntityMapping<Player>()
-                .SetProperty(e => e.ID,
-                    d => d.SetDatabaseGenerated(DatabaseGeneratedOption.Identity)
-                        .SetPrimaryKey()
-                        .SetDatabaseColumnName("Id"));
-        }
     }
 }

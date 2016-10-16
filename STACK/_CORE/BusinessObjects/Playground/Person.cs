@@ -1,8 +1,14 @@
-﻿namespace BusinessObjects.Playground
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BusinessObjects.Playground
 {
     public class Person
     {
-        public int ID { get; set; }
+        [Key]
+        [Column("Id")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int PlayerID { get; set; }
 
         public string SlackID { get; set; }
 

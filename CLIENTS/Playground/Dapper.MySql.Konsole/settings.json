@@ -1,0 +1,8 @@
+﻿{
+    "ConnectionStrings": 
+        {
+            "Playground": "Data Source=(localDb)\\ProjectsV13;Initial Catalog=Playground;Integrated Security=SSPI",
+            "MySql": "server=test.comjwu5mkoq4.us-west-2.rds.amazonaws.com;userid=matt;pwd=F00tball;port=3306;database=sakila;sslmode=none;" 
+        }
+    
+}

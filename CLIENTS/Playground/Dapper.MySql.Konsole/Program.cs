@@ -25,20 +25,33 @@ namespace Dapper.MySql.Konsole
 
         public static void Main(string[] args)
         {
-
             var data = actorRepo.Get(x => x.Id == 31);
             Console.WriteLine(JsonConvert.SerializeObject(data, Formatting.Indented));
 
-            var newActor = new Actor
+            var actor = new Actor
             {
                 FirstName = "Matt",
                 LastName = "Krizanac",
                 LastUpdate = DateTime.UtcNow
             };
 
-            var result = actorRepo.Create(newActor);
+            var newActor = actorRepo.Create(actor);
 
-            Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            Console.WriteLine(JsonConvert.SerializeObject(newActor, Formatting.Indented));
+
+            actor.FirstName = "Matthew";
+
+            Actor updateActor = null;
+            if (actorRepo.Update(actor))
+                updateActor = actorRepo.Get(x => x.Id == actor.Id).FirstOrDefault();
+
+            if (updateActor != null)
+                Console.WriteLine(JsonConvert.SerializeObject(updateActor, Formatting.Indented));
+
+            actorRepo.Delete(actor);
+            var deleteActor = actorRepo.Get(x => x.Id == actor.Id).FirstOrDefault();
+
+            Console.WriteLine(deleteActor == null ? "Actor deleted" : "***Actor NOT deleted***");
 
             Console.ReadKey();
         }

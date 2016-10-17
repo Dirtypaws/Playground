@@ -44,14 +44,16 @@ namespace DataAccess.Sakila.Dapper.Repositories
             }
         }
 
-        public virtual T Update(T data)
+        public virtual bool Update(T data)
         {
-            throw new NotImplementedException();
+            using (var db = OpenConnection())
+                return db.Update(data);
         }
 
         public virtual void Delete(T data)
         {
-            throw new NotImplementedException();
+            using (var db = OpenConnection())
+                db.Delete(data);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace DataAccess.Sakila.Dapper.Repositories
             return data;
         }
 
-        public virtual T Update(T data)
+        public virtual bool Update(T data)
         {
             throw new NotImplementedException();
         }

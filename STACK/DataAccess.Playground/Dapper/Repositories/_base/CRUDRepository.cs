@@ -48,7 +48,7 @@ namespace DataAccess.Playground.Dapper.Repositories
             }
         }
 
-        public virtual T Update(T data)
+        public virtual bool Update(T data)
         {
             throw new NotImplementedException();
         }

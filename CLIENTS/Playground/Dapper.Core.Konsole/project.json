@@ -6,6 +6,7 @@
     },
 
     "dependencies": {
+        "BusinessObjects": "1.0.0-*",
         "CoreServices": "1.0.0-*",
         "DataAccess": "1.0.0-*",
         "DataAccess.Playground": "1.0.0-*",

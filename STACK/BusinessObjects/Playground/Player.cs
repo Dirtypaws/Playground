@@ -1,27 +1,22 @@
-﻿namespace BusinessObjects.Playground
-{
-    public class Player
-    {
-        public int ID { get; set; }
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using BusinessObjects.Playground.Lookups;
+using Framework;
 
-        public string SlackID { get; set; }
-        
+namespace BusinessObjects.Playground
+{
+    public class Player : Person
+    {     
         public int? Number { get; set; }
         public int? PracticeNumber { get; set; }
 
         public int? JerseySizeID { get; set; }
         // public JerseySize JerseySize { get; set; }
+        [Column("JerseyPaid")]
         public bool IsJerseyPaid { get; set; }
 
         public char? Handedness { get; set; }
 
         public int? PositionID { get; set; }
-        // public Position Position { get; set; }
-
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
-        public string FullName => $"{FirstName} {LastName}";
-        public string ProperName => $"{LastName}, {FirstName}";
+        public Lookup Position { get; set; }
     }
 }

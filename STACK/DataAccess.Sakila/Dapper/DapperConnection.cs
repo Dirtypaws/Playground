@@ -1,16 +1,16 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics.CodeAnalysis;
 using Dapper.FastCrud;
 using Framework.Helpers;
 using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
 
-namespace DataAccess.Playground.Dapper
+namespace DataAccess.Sakila.Dapper
 {
     public abstract class DapperConnection<T> : DapperConnection
     {
-        public virtual string TableName => typeof(T).Name;
-        public virtual string SchemaName => "dbo";
+        public virtual string TableName => typeof(T).Name.ToLower();
+        public const string SchemaName = "sakila";
 
         [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         protected DapperConnection()
@@ -23,9 +23,14 @@ namespace DataAccess.Playground.Dapper
 
     public abstract class DapperConnection
     {
+        static DapperConnection()
+        {
+            OrmConfiguration.DefaultDialect = SqlDialect.MySql;
+        }
+
         protected static IDbConnection OpenConnection()
         {
-            var sql = new SqlConnection(ConfigurationHelper.Configuration.GetConnectionString("Playground"));
+            var sql = new MySqlConnection(ConfigurationHelper.Configuration.GetConnectionString("MySql"));
             sql.Open();
             return sql;
         }

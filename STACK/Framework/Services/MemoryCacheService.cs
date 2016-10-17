@@ -1,31 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Linq;
-using System.Runtime.Caching;
+using System.Threading;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Primitives;
 
 namespace Framework.Services
 {
     public class MemoryCacheService
     {
-        static readonly ObjectCache _cache = MemoryCache.Default;
-
-        /// <summary>
-        /// Gets the amount of memory on the computer, in bytes
-        /// </summary>
-        /// <returns></returns>
-        public static long GetCacheMemoryLimit()
-        {
-            return MemoryCache.Default.CacheMemoryLimit;
-        }
-
-        /// <summary>
-        /// Gets the percentage of physical memory that the cache can use
-        /// </summary>
-        /// <returns></returns>
-        public static long GetPhysicalMemoryLimit()
-        {
-            return MemoryCache.Default.PhysicalMemoryLimit;
-        }
+        static readonly IMemoryCache Cache = new MemoryCache(new MemoryCacheOptions());
+        static readonly ConcurrentDictionary<string, CancellationTokenSource> Keys = new ConcurrentDictionary<string, CancellationTokenSource>();
 
         /// <summary>
         /// Retrieve cached item
@@ -35,7 +21,7 @@ namespace Framework.Services
         /// <returns>Cached item as type</returns>
         public static T Get<T>(string key) where T : class
         {
-            try { return (T)_cache[key]; }
+            try { return (T)Cache.Get(key); }
             catch { return null; }
         }
 
@@ -45,23 +31,32 @@ namespace Framework.Services
         /// <typeparam name="T">Type of cached item</typeparam>
         /// <param name="objectToCache">Item to be cached</param>
         /// <param name="key">Name of item</param>
-        /// /// <param name="offset">Cache expiration</param>
-        public static void Add<T>(T objectToCache, string key, DateTimeOffset offset) where T : class
+        /// <param name="slide">Remove from cache if not accessed in the specified time (UTC)</param>
+        /// <param name="expiresAt">Expire the object at the specified time</param>
+        public static void Add<T>(T objectToCache, string key, DateTime? expiresAt = null, TimeSpan? slide = null) where T : class
         {
-            // _cache.Add(key, objectToCache, DateTime.Now.AddMinutes(60));
-            _cache.Add(key, objectToCache, offset);
-        }
+            var options = new MemoryCacheEntryOptions();
 
-        /// <summary>
-        /// Insert item into the cache
-        /// </summary>
-        /// <param name="objectToCache">Item to be cached</param>
-        /// <param name="key">Name of item</param>
-        /// <param name="offset">Cache expiration</param>
-        public static void Add(object objectToCache, string key, DateTimeOffset offset)
-        {
-            // _cache.Add(key, objectToCache, DateTime.Now.AddMinutes(60));
-            _cache.Add(key, objectToCache, offset);
+            if (expiresAt.HasValue)
+            {
+                options.SetAbsoluteExpiration(DateTime.UtcNow - expiresAt.Value);
+            }
+
+            if (slide.HasValue)
+            {
+                options.SetSlidingExpiration(slide.Value);
+            }
+
+            var cts = new CancellationTokenSource();
+            options.AddExpirationToken(new CancellationChangeToken(cts.Token));
+            options.RegisterPostEvictionCallback((echoKey, value, reason, substate) =>
+            {
+                Debug.WriteLine(echoKey + ": '" + value + "' was evicted due to " + reason);
+            });
+
+            Cache.Set(key, objectToCache, options);
+
+            Keys.AddOrUpdate(key, c => cts, (k,v) => cts);
         }
 
         /// <summary>
@@ -70,15 +65,20 @@ namespace Framework.Services
         /// <param name="key">Name of cached item</param>
         public static void Clear(string key)
         {
-            _cache.Remove(key);
+            // Trigger the cancel of the cancellation token - because that will write to the logger.
+            Keys[key].Cancel();
+
+            // Remove it from the cancellation keys 
+            CancellationTokenSource cts;
+            Keys.TryRemove(key, out cts);
         }
 
         /// <summary>
         /// Remove all items from cache in the specified array
         /// </summary>
-        public static void Clear(string[] keys)
+        public static void Clear(string[] cacheKeys)
         {
-            foreach (var key in keys)
+            foreach (var key in cacheKeys.Where(x => Keys.ContainsKey(x)))
                 Clear(key);
         }
 
@@ -87,10 +87,7 @@ namespace Framework.Services
         /// </summary>
         public static void ClearAll()
         {
-            var keys = _cache.Select(kvp => kvp.Key).ToList();
-
-            foreach (var key in keys)
-                _cache.Remove(key);
+            Clear(GetAll());
         }
 
         /// <summary>
@@ -100,16 +97,16 @@ namespace Framework.Services
         /// <returns></returns>
         public static bool Exists(string key)
         {
-            return _cache.Get(key) != null;
+            return Cache.Get(key) != null;
         }
 
         /// <summary>
         /// Gets all cached keys
         /// </summary>
         /// <returns></returns>
-        public static List<string> GetAll()
+        public static string[] GetAll()
         {
-            return _cache.Select(kvp => kvp.Key).ToList();
+            return Keys.Select(x => x.Key).ToArray();
         }
 
     }

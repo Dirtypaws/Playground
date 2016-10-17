@@ -1,3 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AdventureWorks_BKUP" EntityNamespace="DataAccess.LinqToSql" ContextNamespace="DataAccess.AdventureWorks.LinqToSql" Class="DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(localDb)\ProjectsV12;Initial Catalog=AdventureWorks_BKUP;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="DataAccess.AdventureWorks.Properties.Settings" SettingsPropertyName="AdventureWorks_BKUPConnectionString" Provider="System.Data.SqlClient" />
-</Database>

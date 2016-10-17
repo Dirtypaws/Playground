@@ -12,7 +12,7 @@ namespace DataAccess
         IEnumerable<T> Get(Expression<Func<T, bool>> filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, bool useCache = true);
 
-        T Update(T data);
+        bool Update(T data);
         void Delete(T data);
     }
 }

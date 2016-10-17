@@ -51,6 +51,7 @@ namespace Dapper.MySql.Konsole
             actorRepo.Delete(actor);
             var deleteActor = actorRepo.Get(x => x.Id == actor.Id).FirstOrDefault();
 
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(deleteActor == null ? "Actor deleted" : "***Actor NOT deleted***");
 
             Console.ReadKey();

@@ -30,7 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\CLIENTS\Web.Playground\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper.FastCrud, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\CLIENTS\Web.Playground\packages\Dapper.FastCrud.2.4.0\lib\net46\Dapper.FastCrud.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\CLIENTS\Web.Playground\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,9 +57,6 @@
     <Folder Include="LinqToSql\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\DataAccess.Playground\Dapper\DapperConnection.cs">
-      <Link>Dapper\DapperConnection.cs</Link>
-    </Compile>
     <Compile Include="..\DataAccess.Playground\Dapper\Mappers\CustomColumnAttributeMapper.cs">
       <Link>Dapper\Mappers\CustomColumnAttributeMapper.cs</Link>
     </Compile>
@@ -67,6 +78,25 @@
     <Compile Include="..\DataAccess.Playground\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Dapper\DapperConnection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessObjects.MSBuild\BusinessObjects.csproj">
+      <Project>{a847eee5-bff0-49f4-bcb7-a6a9cb80d68c}</Project>
+      <Name>BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess.MSBuild\DataAccess.csproj">
+      <Project>{e6e5efe8-c855-45fa-a1cf-4c33832c05f8}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.MSBuild\Framework.csproj">
+      <Project>{006b3e6b-ed94-4bea-b256-ae6fa711c6dd}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

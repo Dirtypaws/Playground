@@ -31,7 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,8 +44,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="..\Framework\Helpers\ConfigurationHelper.cs">
-      <Link>Helpers\ConfigurationHelper.cs</Link>
+    <Compile Include="..\Framework\Base\BaseAudit.cs">
+      <Link>Base\BaseAudit.cs</Link>
+    </Compile>
+    <Compile Include="..\Framework\Base\BaseUpdate.cs">
+      <Link>Base\BaseUpdate.cs</Link>
     </Compile>
     <Compile Include="..\Framework\Lookups\Lookup.cs">
       <Link>Lookups\Lookup.cs</Link>
@@ -53,9 +59,8 @@
     <Compile Include="..\Framework\Services\LookupCache.cs">
       <Link>Services\LookupCache.cs</Link>
     </Compile>
-    <Compile Include="..\Framework\Services\MemoryCacheService.cs">
-      <Link>Services\MemoryCacheService.cs</Link>
-    </Compile>
+    <Compile Include="Helpers\ConfigurationHelper.cs" />
+    <Compile Include="Services\MemoryCacheService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

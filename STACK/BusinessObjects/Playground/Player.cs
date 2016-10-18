@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using BusinessObjects.Playground.Lookups;
 using Framework;
 
 namespace BusinessObjects.Playground

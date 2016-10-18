@@ -39,7 +39,16 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessObjects.MSBuild\BusinessObjects.csproj">
+      <Project>{a847eee5-bff0-49f4-bcb7-a6a9cb80d68c}</Project>
+      <Name>BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.MSBuild\Framework.csproj">
+      <Project>{006b3e6b-ed94-4bea-b256-ae6fa711c6dd}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="..\DataAccess\ICRUDRepository.cs">
       <Link>ICRUDRepository.cs</Link>
@@ -58,6 +67,9 @@
     </Compile>
     <Compile Include="..\DataAccess\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\DataAccess\Sakila\IActorRepository.cs">
+      <Link>Sakila\IActorRepository.cs</Link>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

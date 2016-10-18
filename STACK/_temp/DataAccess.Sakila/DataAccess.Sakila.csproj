@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C613687B-9426-4B0F-A8FA-88E9E712F9E0}</ProjectGuid>
+    <ProjectGuid>{D4E52809-88B4-4D5A-8E1B-A853ECBBD8A0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CoreServices</RootNamespace>
-    <AssemblyName>CoreServices</AssemblyName>
+    <RootNamespace>DataAccess.Sakila</RootNamespace>
+    <AssemblyName>DataAccess.Sakila</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,46 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessObjects.MSBuild\BusinessObjects.csproj">
-      <Project>{a847eee5-bff0-49f4-bcb7-a6a9cb80d68c}</Project>
-      <Name>BusinessObjects</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAccess.MSBuild\DataAccess.csproj">
-      <Project>{e6e5efe8-c855-45fa-a1cf-4c33832c05f8}</Project>
-      <Name>DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAccess.Playground.MSBuild\DataAccess.Playground.csproj">
-      <Project>{177fc890-6e4c-401f-831b-659d87540a3a}</Project>
-      <Name>DataAccess.Playground</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAccess.Sakila.MSBuild\DataAccess.Sakila.csproj">
-      <Project>{d4e52809-88b4-4d5a-8e1b-a853ecbbd8a0}</Project>
-      <Name>DataAccess.Sakila</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Framework.MSBuild\Framework.csproj">
-      <Project>{006b3e6b-ed94-4bea-b256-ae6fa711c6dd}</Project>
-      <Name>Framework</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\CoreServices\ICRUDService.cs">
-      <Link>ICRUDService.cs</Link>
-    </Compile>
-    <Compile Include="..\CoreServices\Interfaces\ILookupService.cs">
-      <Link>Interfaces\ILookupService.cs</Link>
-    </Compile>
-    <Compile Include="..\CoreServices\Interfaces\IPlayerService.cs">
-      <Link>Interfaces\IPlayerService.cs</Link>
-    </Compile>
-    <Compile Include="..\CoreServices\Properties\AssemblyInfo.cs">
-      <Link>Properties\AssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\CoreServices\Services\LookupService.cs">
-      <Link>Services\LookupService.cs</Link>
-    </Compile>
-    <Compile Include="..\CoreServices\Services\PlayerService.cs">
-      <Link>Services\PlayerService.cs</Link>
-    </Compile>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

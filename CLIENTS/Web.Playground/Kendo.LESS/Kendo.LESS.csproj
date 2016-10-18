@@ -238,16 +238,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\STACK\BusinessObjects\BusinessObjects.csproj">
-      <Project>{2807A27B-AB02-430A-9B5B-6C9166725DC0}</Project>
-      <Name>BusinessObjects</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\STACK\CoreServices\CoreServices.csproj">
-      <Project>{9C1A3E6B-3E3C-46E9-BD5A-D111AF0C6C62}</Project>
-      <Name>CoreServices</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -14,44 +14,23 @@ var gulp = require("gulp"),
     dest = "./wwwroot";
 
 var paths = {
-    src: "./bower_components/_libs/",
-    css: {
-        libs: dest + "/libs.min.css",
-        site: dest + "/site.min.css"
-    },
-    js: {
-        libs: dest + "/libs.min.js",
-        site: dest + "/site.min.js"
-    },
-    fonts: dest + "/fonts"
+    libs: "./bower/_libs/",
+    bower: "./bower/"
 };
 
-gulp.task("clean:js", function (cb) {
-    rimraf(paths.js.libs, cb);
-    rimraf(paths.js.site, cb);
+gulp.task("clean", function (cb) {
+    rimraf(dest, cb);
 });
-
-gulp.task("clean:css", function (cb) {
-    rimraf(paths.css.libs, cb);
-    rimraf(paths.css.site, cb);
-});
-
-gulp.task("clean:fonts", function (cb) {
-    rimraf(dest + "/fonts", cb);
-});
-
-gulp.task("clean", ["clean:js", "clean:css", "clean:fonts"]);
 
 gulp.task("js:libs", function () {
     return gulp.src([
-            paths.src + "**/dist/jquery.js",
-            paths.src + "**/dist/js/bootstrap.js",
-            paths.src + "**/routie.js",
-            "./bower_components/kendo/**/kendo.web.js",
-            paths.src + "**/pnotify.js",
-            paths.src + "**/isotope.pkgd.js",
-            paths.src + "**/select2.js"
-            //paths.src + "**/bootstrap-toggle.js"
+            paths.libs + "**/dist/jquery.js",
+            paths.libs + "**/dist/js/bootstrap.js",
+            paths.libs + "**/routie.js",
+            paths.bower + "kendo/**/kendo.web.js",
+            paths.libs + "**/pnotify.js",
+            paths.libs + "**/isotope.pkgd.js",
+            paths.libs + "**/select2.js"
     ])
         .pipe(concat("libs.min.js"))
         .pipe(uglify())
@@ -88,21 +67,21 @@ gulp.task("css", ["css:libs", "css:app", "css:fonts", "css:images"]);
 
 gulp.task("css:libs", function () {
     var sassStream = gulp.src([
-            "./bower_components/select2/core.scss"
+            paths.bower + "font-awesome/font-awesome.scss",
+            paths.bower + "select2/core.scss"
         ])
         .pipe(sass())
         .pipe(concat("sass.css"));
 
     var cssStream = gulp.src([
-            "./bower_components/_libs/pnotify/dist/pnotify.css"
+            paths.libs + "pnotify/dist/pnotify.css"
         ])
         .pipe(concat("less.css"));
 
     var lessStream = gulp.src([
-            "./bower_components/bootstrap/bootstrap.less",
-            "./bower_components/kendo/kendo.common-bootstrap.less",
-            "./bower_components/kendo/kendo.bootstrap.less",
-            "./bower_components/font-awesome/font-awesome.less"
+            paths.bower + "bootstrap/bootstrap.less",
+            paths.bower + "kendo/kendo.common-bootstrap.less",
+            paths.bower + "kendo/kendo.bootstrap.less"
     ])
         .pipe(less().on("error", function(e) { console.log(e); }))
         .pipe(concat("libs.min.css"));
@@ -113,14 +92,14 @@ gulp.task("css:libs", function () {
 });
 
 gulp.task("css:fonts", function () {
-    return gulp.src([paths.src + "**/font-awesome/fonts/**/*.*", "!**/*.html", "!**/*.txt", "!**/*.less"])
+    return gulp.src([paths.libs + "**/font-awesome/fonts/**/*.*", "!**/*.html", "!**/*.txt", "!**/*.less"])
         .pipe(flatten())
         .pipe(gulp.dest(dest + "/fonts"));
 });
 
 gulp.task("css:images", function () {
     return gulp.src([
-            "./bower_components/kendo/_lib/Bootstrap/*.*"
+            paths.bower + "kendo/_lib/Bootstrap/*.*"
     ])
         .pipe(flatten())
         .pipe(gulp.dest(dest + "/images"));
@@ -128,15 +107,15 @@ gulp.task("css:images", function () {
 });
 
 gulp.task("watch", function () {
-    watch("./bower_components/*/*.scss", function () {
+    watch(paths.bower + "*/*.scss", function () {
         gulp.start("css:libs");
     });
 
-    watch("./bower_components/*/*.less", function () {
+    watch(paths.bower + "*/*.less", function () {
         gulp.start("css:libs");
     });
 
-    watch("./Content/**/*.less", function () {
+    watch(["./Content/**/*.less", "./Content/**/*.scss", "./Content/*.less", "./Content/*.scss"], function () {
         gulp.start("css:app");
     });
 

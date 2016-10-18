@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 
-    <script src="@Url.Content("~/wwwroot/libs.min.js")"></script>
-    <link rel="stylesheet" href="@Url.Content("~/wwwroot/libs.min.css")"/>
+    <script src="~/libs.min.js"></script>
+    <link rel="stylesheet" href="~/libs.min.css"/>
 
     <style>
         .fa.k-sprite,
@@ -17,9 +17,9 @@
     </style>
 
 
-    <script src="@Url.Content("~/Scripts/jquery.signalR-2.2.1.js")"></script>
+    @*<script src="@Url.Content("~/Scripts/jquery.signalR-2.2.1.js")"></script>
 
-    <script src="signalr/hubs"></script>
+    <script src="signalr/hubs"></script>*@
 
     <script>
         var _rootUrl = '@Url.Content("~")';
@@ -27,8 +27,6 @@
 </head>
 <body>
 
-<script src="@Url.Content("~/wwwroot/app.min.js")"></script>
-<link rel="stylesheet" href="@Url.Content("~/wwwroot/app.min.css")"/>
 
 <header>
     @Html.Partial("Components/Header")
@@ -42,13 +40,8 @@
 
 <div class="modal fade" id="_modal" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true"></div>
 
-
-<script src="@Url.Content("~/Scripts/jquery.signalR-2.2.1.js")"></script>
-
-<script src="signalr/hubs"></script>
-
-<script src="@Url.Content("~/wwwroot/app.min.js")"></script>
-<link rel="stylesheet" href="@Url.Content("~/wwwroot/app.min.css")"/>
+<script src="~/app.min.js"></script>
+<link rel="stylesheet" href="~/app.min.css" />
 
 </body>
 </html>

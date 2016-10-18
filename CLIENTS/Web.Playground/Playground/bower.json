@@ -4,7 +4,7 @@
   "dependencies": {
     "font-awesome": "^4.6.1",
     "bootstrap": "^3.3.7",
-    "jquery": "^3.1.0",
+    "jquery": "2.2.4",
     "bootbox.js": "4.4.0",
     "requirejs": "2.1.20",
     "routie": "^0.3.2",

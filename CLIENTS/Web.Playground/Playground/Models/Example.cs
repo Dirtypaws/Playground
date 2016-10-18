@@ -8,7 +8,7 @@ namespace Playground.Models
     {
         public string Group { get; set; } 
 
-        public IEnumerable<string> IconClasses { get; set; }
+        public IEnumerable<string> IconClasses { get; set; }                                                                              
         public bool IsIconStack => IconClasses.Count() > 1;
 
         public string Title { get; set; }

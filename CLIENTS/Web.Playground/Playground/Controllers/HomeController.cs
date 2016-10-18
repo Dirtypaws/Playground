@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Playground.Models;
 
 namespace Playground.Controllers
@@ -10,12 +9,12 @@ namespace Playground.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Main()
+        public IActionResult Main()
         {
             var model = new[]
             {

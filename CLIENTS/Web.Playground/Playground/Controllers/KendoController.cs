@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Playground.Controllers
 {
     public class KendoController : Controller
     {
-        public ActionResult Grid()
+        public IActionResult Grid()
         {
             return View();
         }
 
-        public ActionResult FilterRow()
+        public IActionResult FilterRow()
         {
             return View();
         }
 
-        public ActionResult SignalR()
+        public IActionResult SignalR()
         {
             return View();
         }

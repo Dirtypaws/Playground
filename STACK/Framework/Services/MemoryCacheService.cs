@@ -39,7 +39,7 @@ namespace Framework.Services
 
             if (expiresAt.HasValue)
             {
-                options.SetAbsoluteExpiration(DateTime.UtcNow - expiresAt.Value);
+                options.SetAbsoluteExpiration(expiresAt.Value - DateTime.UtcNow);
             }
 
             if (slide.HasValue)

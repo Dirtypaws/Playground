@@ -11,7 +11,7 @@ The Playground project is used mainly for unit tests and console applications. I
 The Dapper.Core.Konsole project is a demonstration of dotnetcore using Dapper with the CRUD abstraction pattern. Some interesting patterns to display:
 * The base lookup object was moved to the Framework project. This was to avoid a circular dependancy between CoreServices (the cache) and Framework.
 * There's a new Cache pattern specifically for Lookups. It uses ConcurrentDictionary - so it should be threadsafe. *TODO: Write a test to ensure thread safety*
-* The MemoryCache service I updated to dotnetcore. *TODO: Need to test this more*
+* The MemoryCache service I updated to dotnetcore.
 * The new dotnetcore pattern for configs almost requires the ConfigHelper to be in the framework if you want seperate assemblies to reference the applications settings file.
 * I found this sweet SO answer that solved the predicate issue we'd been having in Dapper: http://stackoverflow.com/a/29356694/429593
 * The mapping issues we had I solved with Dapper.FastCRUD.

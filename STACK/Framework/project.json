@@ -5,7 +5,8 @@
         "Microsoft.Extensions.Caching.Memory": "1.0.0",
         "Microsoft.Extensions.Configuration": "1.0.0",
         "NETStandard.Library": "1.6.0",
-        "System.ComponentModel.Annotations": "4.1.0"
+        "System.ComponentModel.Annotations": "4.1.0",
+        "System.Linq.Queryable": "4.0.1"
     },
 
   "frameworks": {

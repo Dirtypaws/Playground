@@ -18,7 +18,7 @@ namespace Framework.Tests.Services
             const string key = "setGetTest";
             var data = new[] { 99, 67, 88 };
 
-            MemoryCacheService.Add(data, key);
+            MemoryCacheService.Set(data, key);
             var result = MemoryCacheService.Get<int[]>(key);
 
             Assert.AreEqual(data.Length, result.Count());
@@ -31,7 +31,7 @@ namespace Framework.Tests.Services
 
             var data = new [] {99, 67, 88};
 
-            MemoryCacheService.Add(data, key);
+            MemoryCacheService.Set(data, key);
 
             Assert.IsTrue(MemoryCacheService.Exists(key));
         }
@@ -43,7 +43,7 @@ namespace Framework.Tests.Services
 
             var data = new[] { 99, 67, 88 };
 
-            MemoryCacheService.Add(data, key);
+            MemoryCacheService.Set(data, key);
             Assert.IsTrue(MemoryCacheService.Exists(key));
 
             MemoryCacheService.Clear(key);
@@ -59,7 +59,7 @@ namespace Framework.Tests.Services
 
             var data = new[] { 99, 67, 88 };
 
-            MemoryCacheService.Add(data, key, null, TimeSpan.FromSeconds(2));
+            MemoryCacheService.Set(data, key, null, TimeSpan.FromSeconds(2));
 
             Thread.Sleep(3000);
 
@@ -75,7 +75,7 @@ namespace Framework.Tests.Services
 
             var data = new[] { 99, 67, 88 };
 
-            MemoryCacheService.Add(data, key, null, TimeSpan.FromSeconds(5));
+            MemoryCacheService.Set(data, key, null, TimeSpan.FromSeconds(5));
 
             // The exists call resets the sliding scale
             Thread.Sleep(3000);
@@ -98,7 +98,7 @@ namespace Framework.Tests.Services
 
             var data = new[] { 99, 67, 88 };
 
-            MemoryCacheService.Add(data, key, DateTime.UtcNow.AddSeconds(3));
+            MemoryCacheService.Set(data, key, DateTime.UtcNow.AddSeconds(3));
 
             Assert.IsTrue(MemoryCacheService.Exists(key));
 
@@ -115,7 +115,7 @@ namespace Framework.Tests.Services
             var data = new[] {99, 67, 88};
 
             for (int i = 0; i < 10; i++)
-                MemoryCacheService.Add(data, baseKey + i);
+                MemoryCacheService.Set(data, baseKey + i);
 
             var result = MemoryCacheService.GetAll();
 

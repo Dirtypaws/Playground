@@ -33,7 +33,7 @@ namespace Framework.Services
         /// <param name="key">Name of item</param>
         /// <param name="slide">Remove from cache if not accessed in the specified time (UTC)</param>
         /// <param name="expiresAt">Expire the object at the specified time</param>
-        public static void Add<T>(T objectToCache, string key, DateTime? expiresAt = null, TimeSpan? slide = null) where T : class
+        public static void Set<T>(T objectToCache, string key, DateTime? expiresAt = null, TimeSpan? slide = null) where T : class
         {
             var options = new MemoryCacheEntryOptions();
 
